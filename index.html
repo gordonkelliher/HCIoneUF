@@ -1,38 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 
 <html>
     <head>
-        <rel="stylesheet" type="text/css" href="css/main.css" />
-        <meta http-equiv="content-type" content="text/php; charset=utf-8" />
+        <meta charset=utf-8" />
 
-        <title>Site Template - Welcome!</title>
+        <title>HCI one.UF</title>
     </head>
 
     <body>
-        <div class="Container">
-            <div class="Header">
 
-            </div>
-
-            <div class="Menu">
-                <ul id="nav"> 
-                    <li>menu item</li>  
-                    <li>menu item</li> 
-                    <li>menu item</li>  
-                    <li>menu item</li> 
-                    <li>menu item</li>  
-                    <li>menu item</li> 
-                </ul> 
-            </div>
-
-            <div class="Body">
-
-            </div>
-        </div>
+    <h1 id="big"></h1>
 
 
+    
     <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
     <script>
       // Initialize Firebase
@@ -41,10 +21,16 @@
         authDomain: "hcioneuf.firebaseapp.com",
         databaseURL: "https://hcioneuf.firebaseio.com",
         projectId: "hcioneuf",
-        storageBucket: "",
+        storageBucket: "hcioneuf.appspot.com",
         messagingSenderId: "992512741534"
       };
       firebase.initializeApp(config);
+
+
+      var bigOne = document.getElementByID('bigOne');
+      var dbRef = firebase.database().ref().child('text');
+      dbRef.on('value',snap => bigOne.innerText = snap.val());
+
     </script>
 
 </body>
