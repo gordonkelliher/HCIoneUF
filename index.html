@@ -9,8 +9,8 @@
 
     <body>
 
-    <h1 id="big"></h1>
-
+    <h1 id="bigOne"></h1>
+    <!-- <th>Hello World!</th> -->
 
     
     <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
@@ -29,7 +29,7 @@
 
       var bigOne = document.getElementByID('bigOne');
       var dbRef = firebase.database().ref().child('text');
-      dbRef.on('value',snap => bigOne.innerText = snap.val());
+      dbRef.on('value', snap => bigOne.innerText = snap.val());
 
     </script>
 
