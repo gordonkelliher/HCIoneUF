@@ -1,6 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
-import { Observable, pipe } from "rxjs";
 
 @Component({
   selector: "app-big-one",
