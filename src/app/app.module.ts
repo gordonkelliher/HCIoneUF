@@ -23,3 +23,4 @@ import { BigOneComponent } from './components/big-one/big-one.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+//hello
