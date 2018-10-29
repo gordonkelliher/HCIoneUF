@@ -10,9 +10,10 @@ import { AppComponent } from "./app.component";
 import { environment } from "../environments/environment";
 import { BigOneComponent } from './components/big-one/big-one.component';
 import { MainComponent } from './components/main/main.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, BigOneComponent, MainComponent],
+  declarations: [AppComponent, BigOneComponent, MainComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
