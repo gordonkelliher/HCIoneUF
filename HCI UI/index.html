@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/Course-Content.css">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 
 <body style="color: rgb(255,255,255);">
@@ -35,6 +38,8 @@
         </nav>
     </div>
     <div></div>
+
+    
     <div></div>
     <div>
         <div class="header-blue" style="background-image: url(&quot;assets/img/university-of-florida-logo-png-2.png&quot;);background-repeat: no-repeat;background-position: center;background-size: contain;margin-bottom: -133px;">
@@ -89,6 +94,8 @@
                             </div>
                         </div>
                     </div>
+                    
+
                     <div class="card" style="margin-bottom: 0px;">
                         <div class="card-header" role="tab" style="color: rgb(0,0,0);">
                             <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-3" href="div#accordion-1 .item-3">Class Meeting&nbsp;<i class="fa fa-chevron-down"></i>&nbsp;&nbsp;</a></h5>
@@ -162,7 +169,7 @@
                                                 <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-2 .item-1" href="div#accordion-2 .item-1">General Education &nbsp;<i class="fa fa-plus"></i></a></h5>
                                             </div>
                                             <div class="collapse item-1" role="tabpanel" data-parent="#accordion-2">
-                                                <div class="card-body">
+                                                <div class="card-body" style="color: rgb(0,0,0);">
                                                     <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-8"><label class="form-check-label" for="formCheck-8">Biological Sciences (B)</label></div>
                                                     <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-8"><label class="form-check-label" for="formCheck-8">Composition (C)</label></div>
                                                     <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-8"><label class="form-check-label" for="formCheck-8">Diversity (D)</label></div>
@@ -240,6 +247,103 @@
                                             </div>
                                         </div>                     
                                     </div>
+
+                                
+
+                                <!-- Modal -->
+                                <div id="myModal" class="modal fade" role="dialog">
+                                  <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Class location</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div id='map' style='width: 400px; height: 300px;'></div>
+                                        <!-- <p>Some text in the modal.</p> -->
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                      </div>
+                                    </div>
+
+                                  </div>
+                                </div>
+
+                                <!-- <div id='map' style='width: 400px; height: 300px;'></div> -->
+                                <script>
+                                mapboxgl.accessToken = 'pk.eyJ1IjoiZ29yZG9ua2VsbGloZXIiLCJhIjoiY2puYnJiaWRqMGQ5MDNrbXIyZWtwMW9naCJ9.C9yTqpg8zaHLGbQuaBgqnw';
+                                var map = new mapboxgl.Map({
+                                container: 'map',
+                                style: 'mapbox://styles/mapbox/streets-v10',
+                                center: [ -82.344277,29.64839],
+                                zoom: 13.0
+
+                                });
+
+                                map.on('load', function () {
+                                // Add a layer showing the places.
+                                map.addLayer({
+                                    "id": "places",
+                                    "type": "symbol",
+                                    "source": {
+                                        "type": "geojson",
+                                        "data": {
+                                            "type": "FeatureCollection",
+                                            "features": [{
+                                                "type": "Feature",
+                                                "properties": {
+        
+                                                    "icon": "library"
+                                                },
+                                                "geometry": {
+                                                    "type": "Point",
+                                                    "coordinates": [ -82.344277,29.64839]
+                                                }
+                                            }]
+                                        }
+                                    },
+                                    "layout": {
+                                        "icon-image": "{icon}-11",
+                                        "icon-allow-overlap": true
+                                    }
+                                });
+
+                                // When a click event occurs on a feature in the places layer, open a popup at the
+                                // location of the feature, with description HTML from its properties.
+                                map.on('click', 'places', function (e) {
+                                    var coordinates = e.features[0].geometry.coordinates.slice();
+                                    var description = e.features[0].properties.description;
+
+                                    // Ensure that if the map is zoomed out such that multiple
+                                    // copies of the feature are visible, the popup appears
+                                    // over the copy being pointed to.
+                                    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                                        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                                    }
+
+                                    new mapboxgl.Popup()
+                                        .setLngLat(coordinates)
+                                        .setHTML(description)
+                                        .addTo(map);
+                                });
+
+                                // Change the cursor to a pointer when the mouse is over the places layer.
+                                map.on('mouseenter', 'places', function () {
+                                    map.getCanvas().style.cursor = 'pointer';
+                                });
+
+                                // Change it back to a pointer when it leaves.
+                                map.on('mouseleave', 'places', function () {
+                                    map.getCanvas().style.cursor = '';
+                                });
+                            });
+
+                                
+                                </script>
+
                                     <div class="col-md-8 content-Selec"style="background-color: white">
                                         <div class="container" style="padding-top: 10px">
                                             <h3 style="color: black">Avaliable Selections:</h3>
@@ -257,6 +361,8 @@
                                                             <h3 style="color: black; padding-top: 10px">Class Meeting/Times</h3>
                                                             <p style="color: black; padding-left: 10px">M,W,F (10:40 AM - 11:30 AM)<br>
                                                                 <br>Room: <a href="https://campusmap.ufl.edu/#/index/0042" target="_blank">CSE E119</a>
+                                                                <!-- Trigger the modal with a button -->
+                                                                <button style="margin-left: 5px;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Map</button>
                                                             </p>
                                                         </div>
                                                     </div>
