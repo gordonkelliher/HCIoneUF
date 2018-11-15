@@ -236,10 +236,10 @@
                                             <p style="color: black; padding-left: 10px">Studies the major topics in the study, planning and design of the interaction between
                                             people and computers.</p>
                                             <h3 style="color: black">Prerequisites:</h3>
-                                            <a href="" style="padding-left: 10px">COP 3530<br><br></a>
+                                            <a href="https://www.cise.ufl.edu/~nemo/cop3530/SyllabusCOP3530sp15.pdf" style="padding-left: 10px"  target="_blank">COP 3530<br><br></a>
                                             <h3 style="color: black">Required for Major:</h3>
                                             <p style="color: black; padding-left: 10px">Yes. This course is part of a Computer Science Major Coursework.
-                                                <br><a href="">Link to Degree audit</a>
+                                                <br><a href="https://one.uf.edu/newdegreeaudit/" target="_blank">Link to Degree audit</a>
                                             </p>
                                             <h3 style="color: black">See Availability (Total)</h3>
                                             <div class="container">
@@ -280,7 +280,6 @@
                                 style: 'mapbox://styles/mapbox/streets-v10',
                                 center: [ -82.344277,29.64839],
                                 zoom: 13.0
-
                                 });
 
                                 map.on('load', function () {
@@ -339,9 +338,7 @@
                                 map.on('mouseleave', 'places', function () {
                                     map.getCanvas().style.cursor = '';
                                 });
-                            });
-
-                                
+                                });
                                 </script>
 
                                     <div class="col-md-8 content-Selec"style="background-color: white">
@@ -352,8 +349,8 @@
                                                         <div class="col-md-6 section-col-1">
                                                             <h3 style="color: black; padding-top: 10px">Section#: 11495</h3>
                                                             <p style="color: black; padding-left: 10px">Instructor: Jaime Ruiz<br>
-                                                                <a href="">Instructor Info<br></a>
-                                                                <a href="">Instructor Reviews<br></a>
+                                                                <a href="https://www.cise.ufl.edu/people/faculty/jaime" target="_blank">Instructor Info<br></a>
+                                                                <a href="" target="_blank">Instructor Reviews<br></a>
                                                                 <a href="https://www.jaimeruiz.com/teaching/hci/fall2018/syllabus.pdf" target="_blank">Course Syllabus</a>
                                                             </p>
                                                         </div>
@@ -426,7 +423,7 @@
                                             <a href="" style="padding-left: 10px"><br></a>
                                             <h3 style="color: black">Required for Major:</h3>
                                             <p style="color: black; padding-left: 10px">Yes. This course is part of a Computer Science Major Coursework.
-                                                <br><a href="">Link to Degree audit</a>
+                                                <br><a href="https://one.uf.edu/newdegreeaudit/" target="_blank">Link to Degree audit</a>
                                             </p>
                                             <h3 style="color: black">See Availability (Total)</h3>
                                             <div class="container">
@@ -434,6 +431,98 @@
                                             </div>
                                         </div>                     
                                     </div>
+                                    
+                                    <!-- Modal -->
+                                    <div id="myModal2" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Class location</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id='map' style='width: 400px; height: 300px;'></div>
+                                                <!-- <p>Some text in the modal.</p> -->
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                            </div>
+
+                                        </div>
+                                        </div>
+
+                                        <!-- <div id='map' style='width: 400px; height: 300px;'></div> -->
+                                        <script>
+                                        mapboxgl.accessToken = 'pk.eyJ1IjoiZ29yZG9ua2VsbGloZXIiLCJhIjoiY2puYnJiaWRqMGQ5MDNrbXIyZWtwMW9naCJ9.C9yTqpg8zaHLGbQuaBgqnw';
+                                        var map = new mapboxgl.Map({
+                                        container: 'map',
+                                        style: 'mapbox://styles/mapbox/streets-v10',
+                                        center: [ -82.344277,29.64839],
+                                        zoom: 13.0
+                                        });
+
+                                        map.on('load', function () {
+                                        // Add a layer showing the places.
+                                        map.addLayer({
+                                            "id": "places",
+                                            "type": "symbol",
+                                            "source": {
+                                                "type": "geojson",
+                                                "data": {
+                                                    "type": "FeatureCollection",
+                                                    "features": [{
+                                                        "type": "Feature",
+                                                        "properties": {
+                
+                                                            "icon": "library"
+                                                        },
+                                                        "geometry": {
+                                                            "type": "Point",
+                                                            "coordinates": [ -82.344277,29.64839]
+                                                        }
+                                                    }]
+                                                }
+                                            },
+                                            "layout": {
+                                                "icon-image": "{icon}-11",
+                                                "icon-allow-overlap": true
+                                            }
+                                        });
+
+                                        // When a click event occurs on a feature in the places layer, open a popup at the
+                                        // location of the feature, with description HTML from its properties.
+                                        map.on('click', 'places', function (e) {
+                                            var coordinates = e.features[0].geometry.coordinates.slice();
+                                            var description = e.features[0].properties.description;
+
+                                            // Ensure that if the map is zoomed out such that multiple
+                                            // copies of the feature are visible, the popup appears
+                                            // over the copy being pointed to.
+                                            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                                                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                                            }
+
+                                            new mapboxgl.Popup()
+                                                .setLngLat(coordinates)
+                                                .setHTML(description)
+                                                .addTo(map);
+                                        });
+
+                                        // Change the cursor to a pointer when the mouse is over the places layer.
+                                        map.on('mouseenter', 'places', function () {
+                                            map.getCanvas().style.cursor = 'pointer';
+                                        });
+
+                                        // Change it back to a pointer when it leaves.
+                                        map.on('mouseleave', 'places', function () {
+                                            map.getCanvas().style.cursor = '';
+                                        });
+                                        });
+                                    </script>    
+                                    
                                     <div class="col-md-8 content-Selec"style="background-color: white">
                                         <div class="container" style="padding-top: 10px">
                                             <h3 style="color: black">Avaliable Selections:</h3>
@@ -442,15 +531,17 @@
                                                         <div class="col-md-6 section-col-1">
                                                             <h3 style="color: black; padding-top: 10px">Section#: 11900</h3>
                                                             <p style="color: black; padding-left: 10px">Instructor: Richard Newman<br>
-                                                                <a href="">Instructor Info<br></a>
-                                                                <a href="">Instructor Reviews<br></a>
-                                                                <a href="" target="_blank">Course Syllabus</a>
+                                                                <a href="https://www.cise.ufl.edu/people/faculty/nemo" target="_blank">Instructor Info<br></a>
+                                                                <a href="" target="_blank">Instructor Reviews<br></a>
+                                                                <a href="https://www.cise.ufl.edu/~nemo/crypto/syllabus.txt" target="_blank">Course Syllabus</a>
                                                             </p>
                                                         </div>
                                                         <div class="col-md-6 section-col-2">
                                                             <h3 style="color: black; padding-top: 10px">Class Meeting/Times</h3>
                                                             <p style="color: black; padding-left: 10px">M,W,F (10:40 AM - 11:30 AM)<br>
                                                                 <br>Room: <a href="https://campusmap.ufl.edu/#/index/0042" target="_blank">CSE E220</a>
+                                                                <!-- Trigger the modal with a button -->
+                                                                <button style="margin-left: 5px;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Map</button>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -496,7 +587,7 @@
                     
                         <div class="panel heading" style="padding-top: 5px">
                             <h3 style="color: black; padding-left: 10px" class="panel-tittle" data-target="#panel-3" data-toggle="collapse">
-                                3Course: CourseNumber - CourseName (#Credits)
+                                Course: CEN5035 - Software Engineering (3 Credits)
                             </h3>
                         </div>
                         
@@ -506,14 +597,14 @@
                                     <div class="col-md-4 content-Desc" style="background-color: white">
                                         <div class="container" style="padding-top: 10px">
                                             <h3 style="color: black">Course Description:</h3>
-                                            <p style="color: black; padding-left: 10px">This is were the course description goes.</p>
+                                            <p style="color: black; padding-left: 10px">Graduate-level introductory survey course on the fundamental concepts and
+                                                    principles of software systems.</p>
                                             <h3 style="color: black">Prerequisites:</h3>
-                                            <a href="" style="padding-left: 10px">Prereq1<br></a>
-                                            <a href="" style="padding-left: 10px">Prereq2<br></a>
-                                            <a href="" style="padding-left: 10px">Prereq3<br><br></a>
+                                            <a href="https://www.cise.ufl.edu/~pjd/courses/3100/admin/syllabus.pdf" target="_blank" style="padding-left: 10px">COT 3100<br></a>
+                                            <a href="https://www.cise.ufl.edu/class/cop3503sp18/syllabus.pdf" target="_blank" style="padding-left: 10px">COP 3503<br></a>
                                             <h3 style="color: black">Required for Major:</h3>
                                             <p style="color: black; padding-left: 10px">Yes. This course is part of a Computer Science Major Coursework.
-                                                <br><a href="">Link to Degree audit</a>
+                                                <br><a href="https://one.uf.edu/newdegreeaudit/" target="_blank">Link to Degree audit</a>
                                             </p>
                                             <h3 style="color: black">See Availability (Total)</h3>
                                             <div class="container">
@@ -521,23 +612,117 @@
                                             </div>
                                         </div>                     
                                     </div>
+
+                                    <!-- Modal -->
+                                    <div id="myModal3" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Class location</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id='map' style='width: 400px; height: 300px;'></div>
+                                                <!-- <p>Some text in the modal.</p> -->
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                            </div>
+
+                                        </div>
+                                        </div>
+
+                                        <!-- <div id='map' style='width: 400px; height: 300px;'></div> -->
+                                        <script>
+                                        mapboxgl.accessToken = 'pk.eyJ1IjoiZ29yZG9ua2VsbGloZXIiLCJhIjoiY2puYnJiaWRqMGQ5MDNrbXIyZWtwMW9naCJ9.C9yTqpg8zaHLGbQuaBgqnw';
+                                        var map = new mapboxgl.Map({
+                                        container: 'map',
+                                        style: 'mapbox://styles/mapbox/streets-v10',
+                                        center: [ -82.344277,29.64839],
+                                        zoom: 13.0
+                                        });
+
+                                        map.on('load', function () {
+                                        // Add a layer showing the places.
+                                        map.addLayer({
+                                            "id": "places",
+                                            "type": "symbol",
+                                            "source": {
+                                                "type": "geojson",
+                                                "data": {
+                                                    "type": "FeatureCollection",
+                                                    "features": [{
+                                                        "type": "Feature",
+                                                        "properties": {
+                
+                                                            "icon": "library"
+                                                        },
+                                                        "geometry": {
+                                                            "type": "Point",
+                                                            "coordinates": [ -82.344277,29.64839]
+                                                        }
+                                                    }]
+                                                }
+                                            },
+                                            "layout": {
+                                                "icon-image": "{icon}-11",
+                                                "icon-allow-overlap": true
+                                            }
+                                        });
+
+                                        // When a click event occurs on a feature in the places layer, open a popup at the
+                                        // location of the feature, with description HTML from its properties.
+                                        map.on('click', 'places', function (e) {
+                                            var coordinates = e.features[0].geometry.coordinates.slice();
+                                            var description = e.features[0].properties.description;
+
+                                            // Ensure that if the map is zoomed out such that multiple
+                                            // copies of the feature are visible, the popup appears
+                                            // over the copy being pointed to.
+                                            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                                                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                                            }
+
+                                            new mapboxgl.Popup()
+                                                .setLngLat(coordinates)
+                                                .setHTML(description)
+                                                .addTo(map);
+                                        });
+
+                                        // Change the cursor to a pointer when the mouse is over the places layer.
+                                        map.on('mouseenter', 'places', function () {
+                                            map.getCanvas().style.cursor = 'pointer';
+                                        });
+
+                                        // Change it back to a pointer when it leaves.
+                                        map.on('mouseleave', 'places', function () {
+                                            map.getCanvas().style.cursor = '';
+                                        });
+                                        });
+                                    </script>  
+                                    
                                     <div class="col-md-8 content-Selec"style="background-color: white">
                                         <div class="container" style="padding-top: 10px">
                                             <h3 style="color: black">Avaliable Selections:</h3>
                                                 <div class="container sections" style="height: 185px; width: 600px; margin-left: 10px; margin-bottom: 10px; background-color: white">
                                                     <div class="row" style="height: 180px">
                                                         <div class="col-md-6 section-col-1">
-                                                            <h3 style="color: black; padding-top: 10px">Section#: 12344</h3>
-                                                            <p style="color: black; padding-left: 10px">Instructor: Instructor Name<br>
-                                                                <a href="">Instructor Info<br></a>
-                                                                <a href="">Instructor Reviews<br></a>
-                                                                <a href="">Course Syllabus</a>
+                                                            <h3 style="color: black; padding-top: 10px">Section#: 11498</h3>
+                                                            <p style="color: black; padding-left: 10px">Instructor: Stephen Thebaut<br>
+                                                                <a href="https://www.cise.ufl.edu/people/faculty/smt"  target="_blank">Instructor Info<br></a>
+                                                                <a href=""  target="_blank">Instructor Reviews<br></a>
+                                                                <a href="https://www.cise.ufl.edu/class/cen5035/5035.syllabus.fa18.pdf"  target="_blank">Course Syllabus</a>
                                                             </p>
                                                         </div>
                                                         <div class="col-md-6 section-col-2">
                                                             <h3 style="color: black; padding-top: 10px">Class Meeting/Times</h3>
-                                                            <p style="color: black; padding-left: 10px">M,W,F (10:40 AM - 11:30 AM)<br>
-                                                                <a href=""><br>BuildingLocation</a>
+                                                            <p style="color: black; padding-left: 10px">M,W,F (8:30 AM - 9:20 AM)<br>
+                                                                <br>Room: <a href="https://campusmap.ufl.edu/#/index/0042" target="_blank">CSE E221</a>
+                                                                <!-- Trigger the modal with a button -->
+                                                                <button style="margin-left: 5px;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Map</button>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -546,29 +731,28 @@
                                                 <div class="container sections" style="height: 185px; width: 600px; margin-left: 10px; background-color: white">
                                                     <div class="row" style="height: 180px">
                                                         <div class="col-md-6 section-col-1">
-                                                            <h3 style="color: black; padding-top: 10px">Section#: ###</h3>
-                                                            <p style="color: black; padding-left: 10px">Instructor: Instructor Name<br>
-                                                                <a href="">Instructor Info<br></a>
-                                                                <a href="">Instructor Reviews<br></a>
-                                                                <a href="">Course Syllabus</a>
+                                                            <h3 style="color: black; padding-top: 10px">Section#:</h3>
+                                                            <p style="color: black; padding-left: 10px">This course only has one available class.<br>
+                                                                <a href=""><br></a>
+                                                                <a href=""><br></a>
+                                                                <a href=""></a>
                                                             </p>
                                                         </div>
                                                         <div class="col-md-6 section-col-2">
                                                             <h3 style="color: black; padding-top: 10px">Class Meeting/Times</h3>
-                                                            <p style="color: black; padding-left: 10px">M,W,F (10:40 AM - 11:30 AM)<br>
-                                                                <a href=""><br>BuildingLocation</a>
+                                                            <p style="color: black; padding-left: 10px">This course only has one available class.<br>
+                                                                <a href=""><br></a>
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             <div class="row content-Transf" style="margin-top: 40px; padding-top: 50px">
                                                 <div class="col "style="background-color: white">
-                                                    <h3 style="color: black">Transfer University: UniversityName</h3>
+                                                    <h3 style="color: black">Transfer University: Universidad Carlos III</h3>
                                                     <p style="color: black; padding-left: 10px">Course Equivalence: 
-                                                        <a href="">LinkToCourse</a>
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=15974&idioma=2" target="_blank">Software Engineering</a>
                                                         <br>Prereq(s) Equivalence: 
-                                                        <a href="">LinkToPreR1</a>
-                                                        <a href="">LinkToPreR2</a>
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=15972&idioma=2" target="_blank">Principles of Software Development</a>                                                    </p>
                                                     </p>
                                                 </div>
                                             </div>
@@ -583,7 +767,7 @@
                     
                         <div class="panel heading" style="padding-top: 5px">
                             <h3 style="color: black; padding-left: 10px" class="panel-tittle" data-target="#panel-4" data-toggle="collapse">
-                                4Course: CourseNumber - CourseName (#Credits)
+                                Course: CNT4007C - Computer Network Fundamentals (4 Credits)
                             </h3>
                         </div>
                         
@@ -593,14 +777,12 @@
                                     <div class="col-md-4 content-Desc" style="background-color: white">
                                         <div class="container" style="padding-top: 10px">
                                             <h3 style="color: black">Course Description:</h3>
-                                            <p style="color: black; padding-left: 10px">This is were the course description goes.</p>
+                                            <p style="color: black; padding-left: 10px">Fundamental concepts, principles and standards of computer networks. Topics are introduced in bottom-up approach, starting from physical layer.</p>
                                             <h3 style="color: black">Prerequisites:</h3>
-                                            <a href="" style="padding-left: 10px">Prereq1<br></a>
-                                            <a href="" style="padding-left: 10px">Prereq2<br></a>
-                                            <a href="" style="padding-left: 10px">Prereq3<br><br></a>
+                                            <a href="http://www.cs.ucf.edu/~lboloni/Teaching/COP4600_Fall2014/index.html" style="padding-left: 10px" target="_blank">COP 4600<br></a>
                                             <h3 style="color: black">Required for Major:</h3>
                                             <p style="color: black; padding-left: 10px">Yes. This course is part of a Computer Science Major Coursework.
-                                                <br><a href="">Link to Degree audit</a>
+                                                <br><a href="https://one.uf.edu/newdegreeaudit/" target="_blank">Link to Degree audit</a>
                                             </p>
                                             <h3 style="color: black">See Availability (Total)</h3>
                                             <div class="container">
@@ -608,23 +790,117 @@
                                             </div>
                                         </div>                     
                                     </div>
+
+                                    <!-- Modal -->
+                                    <div id="myModal4" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Class location</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id='map' style='width: 400px; height: 300px;'></div>
+                                                <!-- <p>Some text in the modal.</p> -->
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                            </div>
+
+                                        </div>
+                                        </div>
+
+                                        <!-- <div id='map' style='width: 400px; height: 300px;'></div> -->
+                                        <script>
+                                        mapboxgl.accessToken = 'pk.eyJ1IjoiZ29yZG9ua2VsbGloZXIiLCJhIjoiY2puYnJiaWRqMGQ5MDNrbXIyZWtwMW9naCJ9.C9yTqpg8zaHLGbQuaBgqnw';
+                                        var map = new mapboxgl.Map({
+                                        container: 'map',
+                                        style: 'mapbox://styles/mapbox/streets-v10',
+                                        center: [ -82.344277,29.64839],
+                                        zoom: 13.0
+                                        });
+
+                                        map.on('load', function () {
+                                        // Add a layer showing the places.
+                                        map.addLayer({
+                                            "id": "places",
+                                            "type": "symbol",
+                                            "source": {
+                                                "type": "geojson",
+                                                "data": {
+                                                    "type": "FeatureCollection",
+                                                    "features": [{
+                                                        "type": "Feature",
+                                                        "properties": {
+                
+                                                            "icon": "library"
+                                                        },
+                                                        "geometry": {
+                                                            "type": "Point",
+                                                            "coordinates": [ -82.344277,29.64839]
+                                                        }
+                                                    }]
+                                                }
+                                            },
+                                            "layout": {
+                                                "icon-image": "{icon}-11",
+                                                "icon-allow-overlap": true
+                                            }
+                                        });
+
+                                        // When a click event occurs on a feature in the places layer, open a popup at the
+                                        // location of the feature, with description HTML from its properties.
+                                        map.on('click', 'places', function (e) {
+                                            var coordinates = e.features[0].geometry.coordinates.slice();
+                                            var description = e.features[0].properties.description;
+
+                                            // Ensure that if the map is zoomed out such that multiple
+                                            // copies of the feature are visible, the popup appears
+                                            // over the copy being pointed to.
+                                            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                                                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                                            }
+
+                                            new mapboxgl.Popup()
+                                                .setLngLat(coordinates)
+                                                .setHTML(description)
+                                                .addTo(map);
+                                        });
+
+                                        // Change the cursor to a pointer when the mouse is over the places layer.
+                                        map.on('mouseenter', 'places', function () {
+                                            map.getCanvas().style.cursor = 'pointer';
+                                        });
+
+                                        // Change it back to a pointer when it leaves.
+                                        map.on('mouseleave', 'places', function () {
+                                            map.getCanvas().style.cursor = '';
+                                        });
+                                        });
+                                    </script>  
+
                                     <div class="col-md-8 content-Selec"style="background-color: white">
                                         <div class="container" style="padding-top: 10px">
                                             <h3 style="color: black">Avaliable Selections:</h3>
                                                 <div class="container sections" style="height: 185px; width: 600px; margin-left: 10px; margin-bottom: 10px; background-color: white">
                                                     <div class="row" style="height: 180px">
                                                         <div class="col-md-6 section-col-1">
-                                                            <h3 style="color: black; padding-top: 10px">Section#: 12344</h3>
-                                                            <p style="color: black; padding-left: 10px">Instructor: Instructor Name<br>
-                                                                <a href="">Instructor Info<br></a>
-                                                                <a href="">Instructor Reviews<br></a>
-                                                                <a href="">Course Syllabus</a>
+                                                            <h3 style="color: black; padding-top: 10px">Section#: 12101</h3>
+                                                            <p style="color: black; padding-left: 10px">Instructor: Jonathan Kavalan<br>
+                                                                <a href="https://www.cise.ufl.edu/people/faculty/jcliu" target="_blank">Instructor Info<br></a>
+                                                                <a href="" target="_blank">Instructor Reviews<br></a>
+                                                                <a href="https://www.cise.ufl.edu/class/cnt4007cfa18/syllabus.pdf" target="_blank">Course Syllabus</a>
                                                             </p>
                                                         </div>
                                                         <div class="col-md-6 section-col-2">
                                                             <h3 style="color: black; padding-top: 10px">Class Meeting/Times</h3>
-                                                            <p style="color: black; padding-left: 10px">M,W,F (10:40 AM - 11:30 AM)<br>
-                                                                <a href=""><br>BuildingLocation</a>
+                                                            <p style="color: black; padding-left: 10px">T,R (1:55 PM - 2:45 PM)<br>
+                                                                <br>Room: <a href="https://campusmap.ufl.edu/#/index/0042" target="_blank">CSE A101</a>
+                                                                <!-- Trigger the modal with a button -->
+                                                                <button style="margin-left: 5px;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal4">Map</button>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -633,29 +909,28 @@
                                                 <div class="container sections" style="height: 185px; width: 600px; margin-left: 10px; background-color: white">
                                                     <div class="row" style="height: 180px">
                                                         <div class="col-md-6 section-col-1">
-                                                            <h3 style="color: black; padding-top: 10px">Section#: ###</h3>
-                                                            <p style="color: black; padding-left: 10px">Instructor: Instructor Name<br>
-                                                                <a href="">Instructor Info<br></a>
-                                                                <a href="">Instructor Reviews<br></a>
-                                                                <a href="">Course Syllabus</a>
+                                                            <h3 style="color: black; padding-top: 10px">Section#:</h3>
+                                                            <p style="color: black; padding-left: 10px">This course only has one available class.<br>
+                                                                <a href=""><br></a>
+                                                                <a href=""><br></a>
+                                                                <a href=""></a>
                                                             </p>
                                                         </div>
                                                         <div class="col-md-6 section-col-2">
                                                             <h3 style="color: black; padding-top: 10px">Class Meeting/Times</h3>
-                                                            <p style="color: black; padding-left: 10px">M,W,F (10:40 AM - 11:30 AM)<br>
-                                                                <a href=""><br>BuildingLocation</a>
+                                                            <p style="color: black; padding-left: 10px">This course only has one available class.<br>
+                                                                <a href=""><br></a>
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             <div class="row content-Transf" style="margin-top: 40px; padding-top: 50px">
                                                 <div class="col "style="background-color: white">
-                                                    <h3 style="color: black">Transfer University: UniversityName</h3>
+                                                    <h3 style="color: black">Transfer University: Universidad Carlos III</h3>
                                                     <p style="color: black; padding-left: 10px">Course Equivalence: 
-                                                        <a href="">LinkToCourse</a>
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13884&idioma=2" target="_blank">Computer Networks</a>
                                                         <br>Prereq(s) Equivalence: 
-                                                        <a href="">LinkToPreR1</a>
-                                                        <a href="">LinkToPreR2</a>
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13868&idioma=2" target="_blank">Programming</a>                                                    </p>
                                                     </p>
                                                 </div>
                                             </div>
@@ -665,6 +940,730 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="panel-group" id="panel-group-5" style="background-color: white; width: 1138px; margin-top: 2px; display:none">
+                    
+                        <div class="panel heading" style="padding-top: 5px">
+                            <h3 style="color: black; padding-left: 10px" class="panel-tittle" data-target="#panel-5" data-toggle="collapse">
+                                Course: CDA4102 - Computer Architecture (3 Credits)
+                            </h3>
+                        </div>
+                        
+                        <div class="panel-collapse collapse" id="panel-5">
+                            <div class="panel body">
+                                <div class="row" style="height: 700px">
+                                    <div class="col-md-4 content-Desc" style="background-color: white">
+                                        <div class="container" style="padding-top: 10px">
+                                            <h3 style="color: black">Course Description:</h3>
+                                            <p style="color: black; padding-left: 10px">Introduces computer architecture and system organization including virtual memory supports cache, pipeline...</p>
+                                            <h3 style="color: black">Prerequisites:</h3>
+                                            <a href="https://www.cise.ufl.edu/~mssz/CompOrg/syllabus.html" style="padding-left: 10px" target="_blank">CDA 3101<br></a>
+                                            <a href="https://www.cise.ufl.edu/~nemo/cop3530/SyllabusCOP3530sp15.pdf" style="padding-left: 10px" target="_blank">COP 3530<br></a>
+                                            <h3 style="color: black">Required for Major:</h3>
+                                            <p style="color: black; padding-left: 10px">Yes. This course is part of a Computer Science Major Coursework.
+                                                <br><a href="https://one.uf.edu/newdegreeaudit/" target="_blank">Link to Degree audit</a>
+                                            </p>
+                                            <h3 style="color: black">See Availability (Total)</h3>
+                                            <div class="container">
+                                                <img src="assets/img/meta-chart.svg" alt="Pie chart" style="width:330px;height: 220px;">
+                                            </div>
+                                        </div>                     
+                                    </div>
+
+                                    <!-- Modal -->
+                                    <div id="myModal5" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Class location</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id='map' style='width: 400px; height: 300px;'></div>
+                                                <!-- <p>Some text in the modal.</p> -->
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                            </div>
+
+                                        </div>
+                                        </div>
+
+                                        <!-- <div id='map' style='width: 400px; height: 300px;'></div> -->
+                                        <script>
+                                        mapboxgl.accessToken = 'pk.eyJ1IjoiZ29yZG9ua2VsbGloZXIiLCJhIjoiY2puYnJiaWRqMGQ5MDNrbXIyZWtwMW9naCJ9.C9yTqpg8zaHLGbQuaBgqnw';
+                                        var map = new mapboxgl.Map({
+                                        container: 'map',
+                                        style: 'mapbox://styles/mapbox/streets-v10',
+                                        center: [ -82.344277,29.64839],
+                                        zoom: 13.0
+                                        });
+
+                                        map.on('load', function () {
+                                        // Add a layer showing the places.
+                                        map.addLayer({
+                                            "id": "places",
+                                            "type": "symbol",
+                                            "source": {
+                                                "type": "geojson",
+                                                "data": {
+                                                    "type": "FeatureCollection",
+                                                    "features": [{
+                                                        "type": "Feature",
+                                                        "properties": {
+                
+                                                            "icon": "library"
+                                                        },
+                                                        "geometry": {
+                                                            "type": "Point",
+                                                            "coordinates": [ -82.344277,29.64839]
+                                                        }
+                                                    }]
+                                                }
+                                            },
+                                            "layout": {
+                                                "icon-image": "{icon}-11",
+                                                "icon-allow-overlap": true
+                                            }
+                                        });
+
+                                        // When a click event occurs on a feature in the places layer, open a popup at the
+                                        // location of the feature, with description HTML from its properties.
+                                        map.on('click', 'places', function (e) {
+                                            var coordinates = e.features[0].geometry.coordinates.slice();
+                                            var description = e.features[0].properties.description;
+
+                                            // Ensure that if the map is zoomed out such that multiple
+                                            // copies of the feature are visible, the popup appears
+                                            // over the copy being pointed to.
+                                            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                                                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                                            }
+
+                                            new mapboxgl.Popup()
+                                                .setLngLat(coordinates)
+                                                .setHTML(description)
+                                                .addTo(map);
+                                        });
+
+                                        // Change the cursor to a pointer when the mouse is over the places layer.
+                                        map.on('mouseenter', 'places', function () {
+                                            map.getCanvas().style.cursor = 'pointer';
+                                        });
+
+                                        // Change it back to a pointer when it leaves.
+                                        map.on('mouseleave', 'places', function () {
+                                            map.getCanvas().style.cursor = '';
+                                        });
+                                        });
+                                    </script>  
+
+                                    <div class="col-md-8 content-Selec"style="background-color: white">
+                                        <div class="container" style="padding-top: 10px">
+                                            <h3 style="color: black">Avaliable Selections:</h3>
+                                                <div class="container sections" style="height: 185px; width: 600px; margin-left: 10px; margin-bottom: 10px; background-color: white">
+                                                    <div class="row" style="height: 180px">
+                                                        <div class="col-md-6 section-col-1">
+                                                            <h3 style="color: black; padding-top: 10px">Section#: 11547</h3>
+                                                            <p style="color: black; padding-left: 10px">Instructor: Prabhat Mishra<br>
+                                                                <a href="https://www.cise.ufl.edu/people/faculty/prabhat" target="_blank">Instructor Info<br></a>
+                                                                <a href="" target="_blank">Instructor Reviews<br></a>
+                                                                <a href="https://www.cise.ufl.edu/~prabhat/Teaching/cda5155-f18/lecture.html" target="_blank">Course Syllabus</a>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-6 section-col-2">
+                                                            <h3 style="color: black; padding-top: 10px">Class Meeting/Times</h3>
+                                                            <p style="color: black; padding-left: 10px">M,W,F (12:50 PM - 1:40 PM)<br>
+                                                                <br>Room: <a href="https://campusmap.ufl.edu/#/index/0497" target="_blank">MCCC 0100</a>
+                                                                <!-- Trigger the modal with a button -->
+                                                                <button style="margin-left: 5px;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal5">Map</button>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="container sections" style="height: 185px; width: 600px; margin-left: 10px; background-color: white">
+                                                    <div class="row" style="height: 180px">
+                                                        <div class="col-md-6 section-col-1">
+                                                            <h3 style="color: black; padding-top: 10px">Section#:</h3>
+                                                            <p style="color: black; padding-left: 10px">This course only has one available class.<br>
+                                                                <a href=""><br></a>
+                                                                <a href=""><br></a>
+                                                                <a href=""></a>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-6 section-col-2">
+                                                            <h3 style="color: black; padding-top: 10px">Class Meeting/Times</h3>
+                                                            <p style="color: black; padding-left: 10px">This course only has one available class.<br>
+                                                                <a href=""><br></a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <div class="row content-Transf" style="margin-top: 40px; padding-top: 50px">
+                                                <div class="col "style="background-color: white">
+                                                    <h3 style="color: black">Transfer University: Universidad Carlos III</h3>
+                                                    <p style="color: black; padding-left: 10px">Course Equivalence: 
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13888&idioma=2" target="_blank">Computer Architecture</a>
+                                                        <br>Prereq(s) Equivalence: 
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13868&idioma=2" target="_blank">Programming,</a>
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13874&idioma=2" target="_blank"> Computer structure,</a> 
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13878&idioma=2" target="_blank"> Operating Systems.</a>                                                     </p>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>                 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-group" id="panel-group-6" style="background-color: white; width: 1138px; margin-top: 2px; display:none">
+                    
+                        <div class="panel heading" style="padding-top: 5px">
+                            <h3 style="color: black; padding-left: 10px" class="panel-tittle" data-target="#panel-6" data-toggle="collapse">
+                                Course: CEN3913 - Computer and Information Science and Engineering Design 1 (3 Credits)
+                            </h3>
+                        </div>
+                        
+                        <div class="panel-collapse collapse" id="panel-6">
+                            <div class="panel body">
+                                <div class="row" style="height: 700px">
+                                    <div class="col-md-4 content-Desc" style="background-color: white">
+                                        <div class="container" style="padding-top: 10px">
+                                            <h3 style="color: black">Course Description:</h3>
+                                            <p style="color: black; padding-left: 10px">Preparatory skills are developed for CISE Design 2 (Computer Engineering). Teams design, produce and report on a software prototype.</p>
+                                            <h3 style="color: black">Prerequisites:</h3>
+                                            <a href="https://www.cise.ufl.edu/class/cen3031sp15/syllabus" style="padding-left: 10px" target="_blank">CEN 3031<br></a>
+                                            <h3 style="color: black">Required for Major:</h3>
+                                            <p style="color: black; padding-left: 10px">Yes. This course is part of a Computer Science Major Coursework.
+                                                <br><a href="https://one.uf.edu/newdegreeaudit/" target="_blank">Link to Degree audit</a>
+                                            </p>
+                                            <h3 style="color: black">See Availability (Total)</h3>
+                                            <div class="container">
+                                                <img src="assets/img/meta-chart.svg" alt="Pie chart" style="width:330px;height: 220px;">
+                                            </div>
+                                        </div>                     
+                                    </div>
+
+                                    <!-- Modal -->
+                                    <div id="myModal6" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Class location</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id='map' style='width: 400px; height: 300px;'></div>
+                                                <!-- <p>Some text in the modal.</p> -->
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                            </div>
+
+                                        </div>
+                                        </div>
+
+                                        <!-- <div id='map' style='width: 400px; height: 300px;'></div> -->
+                                        <script>
+                                        mapboxgl.accessToken = 'pk.eyJ1IjoiZ29yZG9ua2VsbGloZXIiLCJhIjoiY2puYnJiaWRqMGQ5MDNrbXIyZWtwMW9naCJ9.C9yTqpg8zaHLGbQuaBgqnw';
+                                        var map = new mapboxgl.Map({
+                                        container: 'map',
+                                        style: 'mapbox://styles/mapbox/streets-v10',
+                                        center: [ -82.344277,29.64839],
+                                        zoom: 13.0
+                                        });
+
+                                        map.on('load', function () {
+                                        // Add a layer showing the places.
+                                        map.addLayer({
+                                            "id": "places",
+                                            "type": "symbol",
+                                            "source": {
+                                                "type": "geojson",
+                                                "data": {
+                                                    "type": "FeatureCollection",
+                                                    "features": [{
+                                                        "type": "Feature",
+                                                        "properties": {
+                
+                                                            "icon": "library"
+                                                        },
+                                                        "geometry": {
+                                                            "type": "Point",
+                                                            "coordinates": [ -82.344277,29.64839]
+                                                        }
+                                                    }]
+                                                }
+                                            },
+                                            "layout": {
+                                                "icon-image": "{icon}-11",
+                                                "icon-allow-overlap": true
+                                            }
+                                        });
+
+                                        // When a click event occurs on a feature in the places layer, open a popup at the
+                                        // location of the feature, with description HTML from its properties.
+                                        map.on('click', 'places', function (e) {
+                                            var coordinates = e.features[0].geometry.coordinates.slice();
+                                            var description = e.features[0].properties.description;
+
+                                            // Ensure that if the map is zoomed out such that multiple
+                                            // copies of the feature are visible, the popup appears
+                                            // over the copy being pointed to.
+                                            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                                                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                                            }
+
+                                            new mapboxgl.Popup()
+                                                .setLngLat(coordinates)
+                                                .setHTML(description)
+                                                .addTo(map);
+                                        });
+
+                                        // Change the cursor to a pointer when the mouse is over the places layer.
+                                        map.on('mouseenter', 'places', function () {
+                                            map.getCanvas().style.cursor = 'pointer';
+                                        });
+
+                                        // Change it back to a pointer when it leaves.
+                                        map.on('mouseleave', 'places', function () {
+                                            map.getCanvas().style.cursor = '';
+                                        });
+                                        });
+                                    </script>  
+
+                                    <div class="col-md-8 content-Selec"style="background-color: white">
+                                        <div class="container" style="padding-top: 10px">
+                                            <h3 style="color: black">Avaliable Selections:</h3>
+                                                <div class="container sections" style="height: 185px; width: 600px; margin-left: 10px; margin-bottom: 10px; background-color: white">
+                                                    <div class="row" style="height: 180px">
+                                                        <div class="col-md-6 section-col-1">
+                                                            <h3 style="color: black; padding-top: 10px">Section#: 11665</h3>
+                                                            <p style="color: black; padding-left: 10px">Instructor: Mark Schmalz<br>
+                                                                <a href="https://www.cise.ufl.edu/people/faculty/mssz" target="_blank">Instructor Info<br></a>
+                                                                <a href="" target="_blank">Instructor Reviews<br></a>
+                                                                <a href="https://www.cise.ufl.edu/~mssz/Design1/Top-Level.html" target="_blank">Course Syllabus</a>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-6 section-col-2">
+                                                            <h3 style="color: black; padding-top: 10px">Class Meeting/Times</h3>
+                                                            <p style="color: black; padding-left: 10px">T,R (1:55 PM - 2:45 PM)<br>
+                                                                <br>Room: <a href="https://campusmap.ufl.edu/#/index/0042" target="_blank">CSE E220</a>
+                                                                <!-- Trigger the modal with a button -->
+                                                                <button style="margin-left: 5px;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal6">Map</button>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="container sections" style="height: 185px; width: 600px; margin-left: 10px; background-color: white">
+                                                    <div class="row" style="height: 180px">
+                                                        <div class="col-md-6 section-col-1">
+                                                            <h3 style="color: black; padding-top: 10px">Section#:</h3>
+                                                            <p style="color: black; padding-left: 10px">This course only has one available class.<br>
+                                                                <a href=""><br></a>
+                                                                <a href=""><br></a>
+                                                                <a href=""></a>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-6 section-col-2">
+                                                            <h3 style="color: black; padding-top: 10px">Class Meeting/Times</h3>
+                                                            <p style="color: black; padding-left: 10px">This course only has one available class.<br>
+                                                                <a href=""><br></a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <div class="row content-Transf" style="margin-top: 40px; padding-top: 50px">
+                                                <div class="col "style="background-color: white">
+                                                    <h3 style="color: black">Transfer University: Universidad Carlos III</h3>
+                                                    <p style="color: black; padding-left: 10px">Course Equivalence: 
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13892&idioma=2" target="_blank">Software development projects management</a>
+                                                        <br>Prereq(s) Equivalence: 
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13875&idioma=2" target="_blank">Introduction to Engineering Management.</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>                 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-group" id="panel-group-7" style="background-color: white; width: 1138px; margin-top: 2px; display:none">
+                    
+                        <div class="panel heading" style="padding-top: 5px">
+                            <h3 style="color: black; padding-left: 10px" class="panel-tittle" data-target="#panel-7" data-toggle="collapse">
+                                Course: EEL5733 - Adv Systems Prog (3 Credits)
+                            </h3>
+                        </div>
+                        
+                        <div class="panel-collapse collapse" id="panel-7">
+                            <div class="panel body">
+                                <div class="row" style="height: 700px">
+                                    <div class="col-md-4 content-Desc" style="background-color: white">
+                                        <div class="container" style="padding-top: 10px">
+                                            <h3 style="color: black">Course Description:</h3>
+                                            <p style="color: black; padding-left: 10px">Develop a deep understanding of operating system concepts and systems programming fundamentals.</p>
+                                            <h3 style="color: black">Prerequisites:</h3>
+                                            <a href="http://www.cs.ucf.edu/~lboloni/Teaching/COP4600_Fall2014/index.html" style="padding-left: 10px" target="_blank">COP 4600<br></a>
+                                            <a href="https://www.cise.ufl.edu/~prabhat/Teaching/cda5155-f18/lecture.html" style="padding-left: 10px" target="_blank">CDA4102<br></a>
+                                            <h3 style="color: black">Required for Major:</h3>
+                                            <p style="color: black; padding-left: 10px">Yes. This course is part of a Computer Science Major Coursework.
+                                                <br><a href="https://one.uf.edu/newdegreeaudit/" target="_blank">Link to Degree audit</a>
+                                            </p>
+                                            <h3 style="color: black">See Availability (Total)</h3>
+                                            <div class="container">
+                                                <img src="assets/img/meta-chart.svg" alt="Pie chart" style="width:330px;height: 220px;">
+                                            </div>
+                                        </div>                     
+                                    </div>
+
+                                    <!-- Modal -->
+                                    <div id="myModal7" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Class location</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id='map' style='width: 400px; height: 300px;'></div>
+                                                <!-- <p>Some text in the modal.</p> -->
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                            </div>
+
+                                        </div>
+                                        </div>
+
+                                        <!-- <div id='map' style='width: 400px; height: 300px;'></div> -->
+                                        <script>
+                                        mapboxgl.accessToken = 'pk.eyJ1IjoiZ29yZG9ua2VsbGloZXIiLCJhIjoiY2puYnJiaWRqMGQ5MDNrbXIyZWtwMW9naCJ9.C9yTqpg8zaHLGbQuaBgqnw';
+                                        var map = new mapboxgl.Map({
+                                        container: 'map',
+                                        style: 'mapbox://styles/mapbox/streets-v10',
+                                        center: [ -82.344277,29.64839],
+                                        zoom: 13.0
+                                        });
+
+                                        map.on('load', function () {
+                                        // Add a layer showing the places.
+                                        map.addLayer({
+                                            "id": "places",
+                                            "type": "symbol",
+                                            "source": {
+                                                "type": "geojson",
+                                                "data": {
+                                                    "type": "FeatureCollection",
+                                                    "features": [{
+                                                        "type": "Feature",
+                                                        "properties": {
+                
+                                                            "icon": "library"
+                                                        },
+                                                        "geometry": {
+                                                            "type": "Point",
+                                                            "coordinates": [ -82.344277,29.64839]
+                                                        }
+                                                    }]
+                                                }
+                                            },
+                                            "layout": {
+                                                "icon-image": "{icon}-11",
+                                                "icon-allow-overlap": true
+                                            }
+                                        });
+
+                                        // When a click event occurs on a feature in the places layer, open a popup at the
+                                        // location of the feature, with description HTML from its properties.
+                                        map.on('click', 'places', function (e) {
+                                            var coordinates = e.features[0].geometry.coordinates.slice();
+                                            var description = e.features[0].properties.description;
+
+                                            // Ensure that if the map is zoomed out such that multiple
+                                            // copies of the feature are visible, the popup appears
+                                            // over the copy being pointed to.
+                                            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                                                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                                            }
+
+                                            new mapboxgl.Popup()
+                                                .setLngLat(coordinates)
+                                                .setHTML(description)
+                                                .addTo(map);
+                                        });
+
+                                        // Change the cursor to a pointer when the mouse is over the places layer.
+                                        map.on('mouseenter', 'places', function () {
+                                            map.getCanvas().style.cursor = 'pointer';
+                                        });
+
+                                        // Change it back to a pointer when it leaves.
+                                        map.on('mouseleave', 'places', function () {
+                                            map.getCanvas().style.cursor = '';
+                                        });
+                                        });
+                                    </script>  
+
+                                    <div class="col-md-8 content-Selec"style="background-color: white">
+                                        <div class="container" style="padding-top: 10px">
+                                            <h3 style="color: black">Avaliable Selections:</h3>
+                                                <div class="container sections" style="height: 185px; width: 600px; margin-left: 10px; margin-bottom: 10px; background-color: white">
+                                                    <div class="row" style="height: 180px">
+                                                        <div class="col-md-6 section-col-1">
+                                                            <h3 style="color: black; padding-top: 10px">Section#: 12326</h3>
+                                                            <p style="color: black; padding-left: 10px">Instructor: Tuba Yavuz<br>
+                                                                <a href="http://www.tuba.ece.ufl.edu/" target="_blank">Instructor Info<br></a>
+                                                                <a href="" target="_blank">Instructor Reviews<br></a>
+                                                                <a href="https://www.ece.ufl.edu/sites/default/files/pictures/EEL5934_Ad_Sys_Prog_Spring_2017_0.pdf" target="_blank">Course Syllabus</a>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-6 section-col-2">
+                                                            <h3 style="color: black; padding-top: 10px">Class Meeting/Times</h3>
+                                                            <p style="color: black; padding-left: 10px">M,W,F (9:35 AM - 10:25 AM)<br>
+                                                                <br>Room: <a href="https://campusmap.ufl.edu/#/index/0033" target="_blank">NEB 0102</a>
+                                                                <!-- Trigger the modal with a button -->
+                                                                <button style="margin-left: 5px;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal7">Map</button>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="container sections" style="height: 185px; width: 600px; margin-left: 10px; background-color: white">
+                                                    <div class="row" style="height: 180px">
+                                                        <div class="col-md-6 section-col-1">
+                                                            <h3 style="color: black; padding-top: 10px">Section#:</h3>
+                                                            <p style="color: black; padding-left: 10px">This course only has one available class.<br>
+                                                                <a href=""><br></a>
+                                                                <a href=""><br></a>
+                                                                <a href=""></a>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-6 section-col-2">
+                                                            <h3 style="color: black; padding-top: 10px">Class Meeting/Times</h3>
+                                                            <p style="color: black; padding-left: 10px">This course only has one available class.<br>
+                                                                <a href=""><br></a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <div class="row content-Transf" style="margin-top: 40px; padding-top: 50px">
+                                                <div class="col "style="background-color: white">
+                                                    <h3 style="color: black">Transfer University: Universidad Carlos III</h3>
+                                                    <p style="color: black; padding-left: 10px">Course Equivalence: 
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13892&idioma=2" target="_blank">Operating systems design</a>
+                                                        <br>Prereq(s) Equivalence: 
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13868&idioma=2" target="_blank">Programming, </a>
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13873&idioma=2" target="_blank">Algorithms and Data Structures, </a>
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=15972&idioma=2" target="_blank">Principles of Software Development, </a>
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13874&idioma=2" target="_blank">Computer Structure, </a>
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13878&idioma=2" target="_blank">Operating Systems.</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>                 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-group" id="panel-group-8" style="background-color: white; width: 1138px; margin-top: 2px; display:none">
+                    
+                        <div class="panel heading" style="padding-top: 5px">
+                            <h3 style="color: black; padding-left: 10px" class="panel-tittle" data-target="#panel-8" data-toggle="collapse">
+                                Course: CIS4930 - Special Topics in CISE (3 Credits)
+                            </h3>
+                        </div>
+                        
+                        <div class="panel-collapse collapse" id="panel-8">
+                            <div class="panel body">
+                                <div class="row" style="height: 700px">
+                                    <div class="col-md-4 content-Desc" style="background-color: white">
+                                        <div class="container" style="padding-top: 10px">
+                                            <h3 style="color: black">Section Title:</h3>
+                                            <p style="color: black; padding-left: 10px">Software Security</p>
+                                            <h3 style="color: black">Prerequisites:</h3>
+                                            <p style="color: black">There are no prerequisites for this course</p>
+                                            <br>
+                                            <h3 style="color: black">Required for Major:</h3>
+                                            <p style="color: black; padding-left: 10px">No. This course is independent of any Coursework.
+                                                <br>
+                                            </p>
+                                            <h3 style="color: black">See Availability (Total)</h3>
+                                            <div class="container">
+                                                <img src="assets/img/meta-chart.svg" alt="Pie chart" style="width:330px;height: 220px;">
+                                            </div>
+                                        </div>                     
+                                    </div>
+
+                                    <!-- Modal -->
+                                    <div id="myModal8" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Class location</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id='map' style='width: 400px; height: 300px;'></div>
+                                                <!-- <p>Some text in the modal.</p> -->
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                            </div>
+
+                                        </div>
+                                        </div>
+
+                                        <!-- <div id='map' style='width: 400px; height: 300px;'></div> -->
+                                        <script>
+                                        mapboxgl.accessToken = 'pk.eyJ1IjoiZ29yZG9ua2VsbGloZXIiLCJhIjoiY2puYnJiaWRqMGQ5MDNrbXIyZWtwMW9naCJ9.C9yTqpg8zaHLGbQuaBgqnw';
+                                        var map = new mapboxgl.Map({
+                                        container: 'map',
+                                        style: 'mapbox://styles/mapbox/streets-v10',
+                                        center: [ -82.344277,29.64839],
+                                        zoom: 13.0
+                                        });
+
+                                        map.on('load', function () {
+                                        // Add a layer showing the places.
+                                        map.addLayer({
+                                            "id": "places",
+                                            "type": "symbol",
+                                            "source": {
+                                                "type": "geojson",
+                                                "data": {
+                                                    "type": "FeatureCollection",
+                                                    "features": [{
+                                                        "type": "Feature",
+                                                        "properties": {
+                
+                                                            "icon": "library"
+                                                        },
+                                                        "geometry": {
+                                                            "type": "Point",
+                                                            "coordinates": [ -82.344277,29.64839]
+                                                        }
+                                                    }]
+                                                }
+                                            },
+                                            "layout": {
+                                                "icon-image": "{icon}-11",
+                                                "icon-allow-overlap": true
+                                            }
+                                        });
+
+                                        // When a click event occurs on a feature in the places layer, open a popup at the
+                                        // location of the feature, with description HTML from its properties.
+                                        map.on('click', 'places', function (e) {
+                                            var coordinates = e.features[0].geometry.coordinates.slice();
+                                            var description = e.features[0].properties.description;
+
+                                            // Ensure that if the map is zoomed out such that multiple
+                                            // copies of the feature are visible, the popup appears
+                                            // over the copy being pointed to.
+                                            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                                                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                                            }
+
+                                            new mapboxgl.Popup()
+                                                .setLngLat(coordinates)
+                                                .setHTML(description)
+                                                .addTo(map);
+                                        });
+
+                                        // Change the cursor to a pointer when the mouse is over the places layer.
+                                        map.on('mouseenter', 'places', function () {
+                                            map.getCanvas().style.cursor = 'pointer';
+                                        });
+
+                                        // Change it back to a pointer when it leaves.
+                                        map.on('mouseleave', 'places', function () {
+                                            map.getCanvas().style.cursor = '';
+                                        });
+                                        });
+                                    </script>  
+
+                                    <div class="col-md-8 content-Selec"style="background-color: white">
+                                        <div class="container" style="padding-top: 10px">
+                                            <h3 style="color: black">Avaliable Selections:</h3>
+                                                <div class="container sections" style="height: 185px; width: 600px; margin-left: 10px; margin-bottom: 10px; background-color: white">
+                                                    <div class="row" style="height: 180px">
+                                                        <div class="col-md-6 section-col-1">
+                                                            <h3 style="color: black; padding-top: 10px">Section#: 11350</h3>
+                                                            <p style="color: black; padding-left: 10px">Instructor: Byron Williams<br>
+                                                                <a href="https://www.cise.ufl.edu/people/faculty/byron" target="_blank">Instructor Info<br></a>
+                                                                <p>No Reviews available<br></p>
+                                                                <p>No Syllabus available<br></p>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-6 section-col-2">
+                                                            <h3 style="color: black; padding-top: 10px">Class Meeting/Times</h3>
+                                                            <p style="color: black; padding-left: 10px">T (1:55 AM - 2:45 PM)<br>
+                                                                R (1:55 AM - 3:45 PM)
+                                                                <br>Room: <a href="https://campusmap.ufl.edu/#/index/0042" target="_blank">CSE E119</a>
+                                                                <!-- Trigger the modal with a button -->
+                                                                <button style="margin-left: 5px;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal8">Map</button>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="container sections" style="height: 185px; width: 600px; margin-left: 10px; background-color: white">
+                                                    <div class="row" style="height: 180px">
+                                                        <div class="col-md-6 section-col-1">
+                                                            <h3 style="color: black; padding-top: 10px">Section#:</h3>
+                                                            <p style="color: black; padding-left: 10px">This course only has one available class.<br>
+                                                                <a href=""><br></a>
+                                                                <a href=""><br></a>
+                                                                <a href=""></a>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-6 section-col-2">
+                                                            <h3 style="color: black; padding-top: 10px">Class Meeting/Times</h3>
+                                                            <p style="color: black; padding-left: 10px">This course only has one available class.<br>
+                                                                <a href=""><br></a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <div class="row content-Transf" style="margin-top: 40px; padding-top: 50px">
+                                                <div class="col "style="background-color: white">
+                                                    <h3 style="color: black">Transfer University: Universidad Carlos III</h3>
+                                                    <p style="color: black; padding-left: 10px">Course Equivalence: 
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13893&idioma=2" target="_blank">Security Engineering</a>
+                                                        <br>Prereq(s) Equivalence: 
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13868&idioma=2" target="_blank">Computer Networks, </a>
+                                                        <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13873&idioma=2" target="_blank">Criptography and Computer Security.</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>                 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -742,6 +1741,30 @@
                 x.style.display = "none";
             }
             var x = document.getElementById("panel-group-4");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+            var x = document.getElementById("panel-group-5");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+            var x = document.getElementById("panel-group-6");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+            var x = document.getElementById("panel-group-7");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+            var x = document.getElementById("panel-group-8");
             if (x.style.display === "none") {
                 x.style.display = "block";
             } else {
