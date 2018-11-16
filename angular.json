@@ -24,21 +24,9 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets/"],
             "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/assets/fonts/font-awesome.min.css",
-              "src/assets/fonts/ionicons.min.css",
-              "src/app/css/Contact-Form-Clean.css",
-              "src/app/css/Footer-Clean.css",
-              "src/app/css/Header-Blue.css",
-              "src/app/css/Highlight-Clean.css",
-              "src/app/css/Navigation-with-Button.css",
-              "src/app/css/Course-Content.css"
+              "src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/jquery/dist/jquery.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
