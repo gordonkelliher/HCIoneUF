@@ -1,0 +1,21 @@
+.sections{
+  border: 3px solid black;
+}
+.section-col-2{
+  border-left: 3px solid black;
+}
+.content-Desc{
+  border: 2px solid black;
+}
+.content-Selec{
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+}
+.content-Transf{
+  border-top: 2px solid black;
+}
+.panel-group{
+  border: 1px solid black;
+  
+}
