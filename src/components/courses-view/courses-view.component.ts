@@ -62,7 +62,7 @@ export class CoursesViewComponent implements OnInit {
           number: "1234",
           students: "",
           instructor: {
-            name: "Jeremiah Blanchard
+            name: "Jeremiah Blanchard",
             infoLink: "",
             reviewsLink: ""
           },
