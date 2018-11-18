@@ -30,6 +30,7 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "12344",
+          students: "",
           instructor: {
             name: "Jaime Ruiz",
             infoLink: "",
@@ -47,6 +48,127 @@ export class CoursesViewComponent implements OnInit {
         }
       ]
     });
+
+    this.courses.push({
+      number: "COP3502",
+      name: "Programming Fundamentals 1",
+      credits: 3,
+      description: "Learn the core programming concepts.",
+      prerequisites: ["None"],
+      majors: ["Computer Science"],
+
+      sections: [
+        {
+          number: "1234",
+          students: "",
+          instructor: {
+            name: "Jeremiah Blanchard",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "9:30 AM",
+              end: "10:20 AM",
+              location: "CSE E220"
+            }
+          ]
+        }
+      ]
+    });
+
+    this.courses.push({
+      number: "COP3530",
+      name: "Data Structures and Algorithms",
+      credits: 3,
+      description: "Study the basics of Data structures and algorithms",
+      prerequisites: ["COP3504"],
+      majors: ["Computer Science"],
+
+      sections: [
+        {
+          number: "4567",
+          students: "",
+          instructor: {
+            name: "Nick Sanches",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["T", "R"],
+              begin: "11:40 AM",
+              end: "12:30 PM",
+              location: "CSE E229"
+            }
+          ]
+        }
+      ]
+    });
+
+    this.courses.push({
+      number: "COP4331",
+      name: "Object-Oriented Programming",
+      credits: 3,
+      description: "Learn the basics of object oriented programming.",
+      prerequisites: ["COP3530"],
+      majors: ["Computer Science"],
+
+      sections: [
+        {
+          number: "7894",
+          students: "",
+          instructor: {
+            name: "Nate Mendez",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "2:40 PM",
+              end: "3:30 AM",
+              location: "CSE E109"
+            }
+          ]
+        }
+      ]
+    });
+
+    this.courses.push({
+      number: "COP4720",
+      name: "Information and Database Systems 2",
+      credits: 3,
+      description: "Continue the exploration into the study of Info and Database Systems.",
+      prerequisites: ["CIS4301", "COP3530"],
+      majors: ["Computer Science"],
+
+      sections: [
+        {
+          number: "1111",
+          students: "",
+          instructor: {
+            name: "Nick Alfonzo",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "8:00 PM",
+              end: "8:50 PM",
+              location: "CSE E219"
+            }
+          ]
+        }
+      ]
+    });
+
   }
 
   ngOnInit() {
