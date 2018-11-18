@@ -13,9 +13,9 @@ export class CoursesViewComponent implements OnInit {
     this.filter = filter;
     this.applyFilter();
   }
-  courses: Course[] = [];
-  filteredCourses: Course[] = [];
-  major: string;
+  private courses: Course[] = [];
+  public filteredCourses: Course[] = [];
+  public major: string;
 
   constructor() {
     this.major = "Computer Science";

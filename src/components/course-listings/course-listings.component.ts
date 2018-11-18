@@ -7,12 +7,12 @@ import { Course } from "src/models/course";
   styleUrls: ["./course-listings.component.scss"]
 })
 export class CourseListingsComponent implements OnInit {
-  @Input() course: Course;
-  @Input() major: string;
+  @Input() private course: Course;
+  @Input() private major: string;
   // This is a hack to make campusFunction() work
-  @Input() panelNumber: number;
+  @Input() private panelNumber: number;
 
-  isInMajor: string;
+  private isInMajor: string;
 
   constructor() {}
 
