@@ -7,7 +7,7 @@
     <h3
       style="color: black; padding-left: 10px"
       class="panel-tittle"
-      data-target="#panel-4"
+      [attr.data-target]="'#panel-' + panelNumber"
       data-toggle="collapse"
     >
       Course: {{ course.number }} - {{ course.name }} ({{
@@ -17,7 +17,7 @@
     </h3>
   </div>
 
-  <div class="panel-collapse collapse" id="panel-4">
+  <div class="panel-collapse collapse" id="panel-{{panelNumber}}">
     <div class="panel body">
       <div class="row" style="height: 700px">
         <div class="col-md-4 content-Desc" style="background-color: white">
