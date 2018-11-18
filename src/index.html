@@ -1005,9 +1005,9 @@
       function campusFunction() {
         for (var i = 1; i < 5; i++) {
           var x = document.getElementById("panel-group-" + i);
-          if (x.style.display === "none") {
+          if (x && x.style.display === "none") {
             x.style.display = "block";
-          } else {
+          } else if (x) {
             x.style.display = "none";
           }
         }
