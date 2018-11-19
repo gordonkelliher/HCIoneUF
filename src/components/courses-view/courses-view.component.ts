@@ -44,6 +44,23 @@ export class CoursesViewComponent implements OnInit {
               location: "CSE E119"
             }
           ]
+        },
+        {
+          number: "12345",
+          instructor: {
+            name: "Jaime Ruiz",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "10:40 AM",
+              end: "11:30 PM",
+              location: "CSE E119"
+            }
+          ]
         }
       ]
     });
@@ -59,6 +76,23 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "1234",
+          instructor: {
+            name: "Jeremiah Blanchard",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "9:30 AM",
+              end: "10:20 AM",
+              location: "CSE E220"
+            }
+          ]
+        },
+        {
+          number: "1235",
           instructor: {
             name: "Jeremiah Blanchard",
             infoLink: "",
@@ -102,6 +136,23 @@ export class CoursesViewComponent implements OnInit {
               location: "CSE E229"
             }
           ]
+        },
+        {
+          number: "4568",
+          instructor: {
+            name: "Nick Sanches",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["T", "R"],
+              begin: "11:40 AM",
+              end: "12:30 PM",
+              location: "CSE E229"
+            }
+          ]
         }
       ]
     });
@@ -117,6 +168,23 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "7894",
+          instructor: {
+            name: "Nate Mendez",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "2:40 PM",
+              end: "3:30 AM",
+              location: "CSE E109"
+            }
+          ]
+        },
+        {
+          number: "7895",
           instructor: {
             name: "Nate Mendez",
             infoLink: "",
@@ -160,6 +228,23 @@ export class CoursesViewComponent implements OnInit {
               location: "CSE E219"
             }
           ]
+        },
+        {
+          number: "1112",
+          instructor: {
+            name: "Nick Alfonzo",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "8:00 PM",
+              end: "8:50 PM",
+              location: "CSE E219"
+            }
+          ]
         }
       ]
     });
@@ -189,6 +274,23 @@ export class CoursesViewComponent implements OnInit {
               location: "CSE E217"
             }
           ]
+        },
+        {
+          number: "2223",
+          instructor: {
+            name: "Matthew Menendez",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "6:00 PM",
+              end: "6:50 PM",
+              location: "CSE E217"
+            }
+          ]
         }
       ]
     });
@@ -204,6 +306,23 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "3333",
+          instructor: {
+            name: "Jeremiah Blanchard",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "4:00 PM",
+              end: "4:50 PM",
+              location: "CSE E119"
+            }
+          ]
+        },
+        {
+          number: "3334",
           instructor: {
             name: "Jeremiah Blanchard",
             infoLink: "",
