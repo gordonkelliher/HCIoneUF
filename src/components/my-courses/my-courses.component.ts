@@ -20,13 +20,11 @@ export class MyCoursesComponent implements OnInit {
   }
 
   public checkCourses() {
-    alert("WAT");
-    alert(this.courses);
-    for (var i = 0; i < this.courses.length; i++) {
-      alert("WAT");
+    // for (var i = 0; i < this.courses.length; i++) {
+      // alert("WAT");
 
-      var course = this.courses[i];
-      alert(course.name);
+      // var course = this.courses[i];
+      // alert(course.name);
       // for (var j = 0; j < course.sections; j++) {
 
         // this.selection.push(this.studentList[i].id);
