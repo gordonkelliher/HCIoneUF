@@ -8,7 +8,7 @@ export interface Course {
 
   sections: {
     number: string;
-    enrolled: string;
+    enrolled: boolean;
     instructor: {
       name: string;
       infoLink: string;

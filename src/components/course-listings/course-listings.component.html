@@ -87,8 +87,8 @@
                     ({{ time.begin }} - {{ time.end }})<br />
                     {{ time.location }}
                     <a href="https://campusmap.ufl.edu/#/index/0042" target="_blank">(map)</a><br/>
-
-                    <button type="button" ng-click="addClass()" style="margin-top:15px" class="btn btn-primary">Add Class</button>
+                    <button type="button" value="Click" (click) ="sectionNumber = section.number; addClass(); section.enrolled = true" style="margin-top:15px" class="btn btn-primary">Add Class</button>
+                    <button type="button" value="Click" (click) ="sectionNumber = section.number; removeClass(); section.enrolled = false" style="margin-top:15px; margin-left:5px" class="btn btn-danger">Add Class</button>
                   </p>
                 </div>
               </div>

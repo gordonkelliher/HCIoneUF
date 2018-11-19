@@ -13,10 +13,14 @@ export class CourseListingsComponent implements OnInit {
   @Input() private panelNumber: number;
 
   private isInMajor: string;
+  private count: number;
+  private sectionNumber: number;
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
+    this.count = 0;
     let isInMajor =
       "Yes. This course is part of the " + this.major + " Major Coursework.";
     let isNotInMajor =
@@ -28,5 +32,12 @@ export class CourseListingsComponent implements OnInit {
       }) !== undefined
         ? isInMajor
         : isNotInMajor;
+  }
+
+  addClass() {
+    alert("Enrolled in section " + this.sectionNumber + "!" );
+  }
+  removeClass() {
+    alert("Successfully removed from section " + this.sectionNumber + "!" );
   }
 }
