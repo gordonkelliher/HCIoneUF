@@ -169,7 +169,7 @@ export class CoursesViewComponent implements OnInit {
       credits: 3,
       description: "Learn the basics of object oriented programming.",
       prerequisites: ["COP3530"],
-      majors: ["Computer Science"],
+      majors: [""],
 
       sections: [
         {

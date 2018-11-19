@@ -84,8 +84,11 @@
                     <span *ngFor="let day of time.days; let last = last"
                       >{{ day }}<span *ngIf="!last">, </span></span
                     >
-                    ({{ time.begin }} - {{ time.end }}<br />
-                    <a href=""><br />{{ time.location }}</a>
+                    ({{ time.begin }} - {{ time.end }})<br />
+                    {{ time.location }}
+                    <a href="https://campusmap.ufl.edu/#/index/0042" target="_blank">(map)</a><br/>
+
+                    <button type="button" style="margin-top:15px" class="btn btn-primary">Add Class</button>
                   </p>
                 </div>
               </div>

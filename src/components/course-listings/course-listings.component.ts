@@ -18,9 +18,9 @@ export class CourseListingsComponent implements OnInit {
 
   ngOnInit() {
     let isInMajor =
-      "Yes. This course is part of a " + this.major + " Major Coursework.";
+      "Yes. This course is part of the " + this.major + " Major Coursework.";
     let isNotInMajor =
-      "No. This course is not part of a " + this.major + " Major Coursework.";
+      "No. This course is not part of the " + this.major + " Major Coursework.";
     //checks if the current major is in the majors list for the course
     this.isInMajor =
       this.course.majors.find(value => {
