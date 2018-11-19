@@ -1,13 +1,13 @@
 <div
   class="panel-group"
-  id="panel-group-4"
+  id="panel-group-{{panelNumber}}"
   style="background-color: white; width: 1138px; margin-top: 2px; display:none"
 >
   <div class="panel heading" style="padding-top: 5px">
     <h3
       style="color: black; padding-left: 10px"
       class="panel-tittle"
-      data-target="#panel-4"
+      [attr.data-target]="'#panel-' + panelNumber"
       data-toggle="collapse"
     >
       Course: {{ course.number }} - {{ course.name }} ({{
@@ -17,7 +17,7 @@
     </h3>
   </div>
 
-  <div class="panel-collapse collapse" id="panel-4">
+  <div class="panel-collapse collapse" id="panel-{{panelNumber}}">
     <div class="panel body">
       <div class="row" style="height: 700px">
         <div class="col-md-4 content-Desc" style="background-color: white">
@@ -33,6 +33,8 @@
               *ngFor="let prereq of course.prerequisites"
               >{{ prereq }}<br
             /></a>
+            <div style="padding-bottom:10px">
+            </div>
             <h3 style="color: black">Required for Major:</h3>
             <p style="color: black; padding-left: 10px">
               {{ isInMajor }} <br /><a href="">Link to Degree audit</a>
