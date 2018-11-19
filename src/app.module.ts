@@ -7,6 +7,6 @@ import { MyCoursesComponent } from './components/my-courses/my-courses.component
 @NgModule({
   declarations: [CourseListingsComponent, CoursesViewComponent, MyCoursesComponent],
   imports: [BrowserModule],
-  bootstrap: [CoursesViewComponent]
+  bootstrap: [CoursesViewComponent, MyCoursesComponent]
 })
 export class AppModule {}

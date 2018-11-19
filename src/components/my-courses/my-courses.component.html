@@ -1,3 +1,10 @@
+<div
+  class="row"
+  style="height: 50px"
+  *ngFor="let course of filteredCourses"
+>
 <p>
-  my-courses works!
+Course: {{ course.number }} - {{ course.name }} ({{
+  course.credits
 </p>
+</div>
