@@ -5,6 +5,10 @@ export interface Course {
   description: string;
   prerequisites: string[];
   majors: string[];
+  equivalence: string;
+  prereqEquivalence: string[];
+
+
 
   sections: {
     number: string;

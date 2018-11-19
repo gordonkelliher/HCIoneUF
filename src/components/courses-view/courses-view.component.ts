@@ -20,6 +20,8 @@ export class CoursesViewComponent implements OnInit {
   constructor() {
     this.major = "Computer Science";
     this.courses.push({
+      equivalence: "User Interfaces",
+      prereqEquivalence: ["Programming", "Principles of Informatics Engineering", "Automata and Formal Language Theory"],
       number: "CEN4721",
       name: "Human-Computer Interaction",
       credits: 3,
@@ -68,6 +70,8 @@ export class CoursesViewComponent implements OnInit {
     });
 
     this.courses.push({
+      equivalence: "Programming 1",
+      prereqEquivalence: ["None"],
       number: "COP3502",
       name: "Programming Fundamentals 1",
       credits: 3,
@@ -116,6 +120,8 @@ export class CoursesViewComponent implements OnInit {
     });
 
     this.courses.push({
+      equivalence: "Data Structures/Algorithms",
+      prereqEquivalence: ["Programming 1"],
       number: "COP3530",
       name: "Data Structures and Algorithms",
       credits: 3,
@@ -164,6 +170,8 @@ export class CoursesViewComponent implements OnInit {
     });
 
     this.courses.push({
+      equivalence: "OOP",
+      prereqEquivalence: ["Programming 1, Programming 2, Data Structures/Algorithms"],
       number: "COP4331",
       name: "Object-Oriented Programming",
       credits: 3,
@@ -212,6 +220,8 @@ export class CoursesViewComponent implements OnInit {
     });
 
     this.courses.push({
+      equivalence: "Databases 2",
+      prereqEquivalence: ["Programming 1, Programming 2, Databases 1"],
       number: "COP4720",
       name: "Information and Database Systems 2",
       credits: 3,
@@ -260,6 +270,8 @@ export class CoursesViewComponent implements OnInit {
     });
 
     this.courses.push({
+      equivalence: "Computer Organization",
+      prereqEquivalence: ["Programming 1, Programming 2, Discrete Structures"],
       number: "CDA3101",
       name: "Introduction to Computer Organization",
       credits: 3,
@@ -308,6 +320,8 @@ export class CoursesViewComponent implements OnInit {
     });
 
     this.courses.push({
+      equivalence: "OS",
+      prereqEquivalence: ["Programming 1, Programming 2, Computer Organization"],
       number: "COP4600",
       name: "Operating Systems",
       credits: 4,

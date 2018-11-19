@@ -103,15 +103,16 @@
             </div>
 
 
-            <div class="row content-Transf" style="margin-top: 40px; padding-top: 50px">
+            <div class="row content-Transf" style="margin-top: 40px; padding-top: 25px">
               <div class="col "style="background-color: white">
                 <h3 style="color: black">Transfer University: Universidad Carlos III</h3>
                 <p style="color: black; padding-left: 10px">Course Equivalence:
-                  <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13882&idioma=2" target="_blank">User Interfaces</a>
+                  <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13882&idioma=2" target="_blank">{{ course.equivalence }}</a>
                   <br>Prereq(s) Equivalence:
-                  <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13868&idioma=2" target="_blank">Programming,</a>
-                  <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=15969&idioma=2" target="_blank"> Principles of Informatics Engineering,</a>
-                  <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13877&idioma=2" target="_blank"> Automata and Formal Language Theory</a>
+                  <a
+                    href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13868&idioma=2"
+                    *ngFor="let prereq of course.prereqEquivalence"
+                    >{{ prereq }}, </a>
                 </p>
               </div>
             </div>
