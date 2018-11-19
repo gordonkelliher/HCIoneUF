@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Course } from "src/models/course";
+import { MyCoursesComponent } from "src/components/my-courses/my-courses.component";
+
 
 @Component({
+  providers:[MyCoursesComponent ],
   selector: "course-listings",
   templateUrl: "./course-listings.component.html",
   styleUrls: ["./course-listings.component.scss"]
@@ -16,7 +19,7 @@ export class CourseListingsComponent implements OnInit {
   private count: number;
   private sectionNumber: number;
 
-  constructor() {
+  constructor(private comp: MyCoursesComponent) {
   }
 
   ngOnInit() {
@@ -36,8 +39,11 @@ export class CourseListingsComponent implements OnInit {
 
   addClass() {
     alert("Enrolled in section " + this.sectionNumber + "!" );
+    this.comp.checkCourses();
+
   }
   removeClass() {
     alert("Successfully removed from section " + this.sectionNumber + "!" );
+    this.comp.checkCourses();
   }
 }

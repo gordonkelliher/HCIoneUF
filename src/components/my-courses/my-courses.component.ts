@@ -12,23 +12,21 @@ export class MyCoursesComponent implements OnInit {
   public filteredCourses: Course[] = [];
 
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.filteredCourses = [];
-    this.courses.forEach(course => {
-      alert(course);
-      alert("WAT");
-      // if (course.sections) {
-      //   course.sections.forEach(section => {
-      //     if (section.enrolled) {
-      //       this.filteredCourses.push(course);
-      //     }
-      //   });
-      // }
-      //       this.filteredCourses.push(course);
-      this.filteredCourses.push(course);
+  }
 
-    });
+  public checkCourses() {
+    // this.filteredCourses = [];
+    //
+    // this.courses.forEach(course => {
+    //     course.sections.forEach(section => {
+    //       if (section.enrolled) {
+    //         this.filteredCourses.push(course);
+    //       }
+    //     });
+    // });
   }
 }
