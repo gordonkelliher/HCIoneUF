@@ -9,4 +9,4 @@ import { MyCoursesComponent } from './components/my-courses/my-courses.component
   imports: [BrowserModule],
   bootstrap: [CoursesViewComponent, MyCoursesComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -32,7 +32,7 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "12344",
-          enrolled:false,
+          enrolled: false,
           instructor: {
             name: "Jaime Ruiz",
             infoLink: "",
@@ -50,7 +50,7 @@ export class CoursesViewComponent implements OnInit {
         },
         {
           number: "12345",
-          enrolled:false,
+          enrolled: false,
           instructor: {
             name: "Jaime Ruiz",
             infoLink: "",
@@ -82,7 +82,7 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "1234",
-          enrolled:false,
+          enrolled: false,
           instructor: {
             name: "Jeremiah Blanchard",
             infoLink: "",
@@ -100,7 +100,7 @@ export class CoursesViewComponent implements OnInit {
         },
         {
           number: "1235",
-          enrolled:false,
+          enrolled: false,
           instructor: {
             name: "Jeremiah Blanchard",
             infoLink: "",
@@ -132,7 +132,7 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "4567",
-          enrolled:false,
+          enrolled: false,
           instructor: {
             name: "Nick Sanches",
             infoLink: "",
@@ -150,7 +150,7 @@ export class CoursesViewComponent implements OnInit {
         },
         {
           number: "4568",
-          enrolled:false,
+          enrolled: false,
           instructor: {
             name: "Nick Sanches",
             infoLink: "",
@@ -182,7 +182,7 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "7894",
-          enrolled:false,
+          enrolled: false,
           instructor: {
             name: "Nate Mendez",
             infoLink: "",
@@ -200,7 +200,7 @@ export class CoursesViewComponent implements OnInit {
         },
         {
           number: "7895",
-          enrolled:false,
+          enrolled: false,
           instructor: {
             name: "Nate Mendez",
             infoLink: "",
@@ -232,7 +232,7 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "1111",
-          enrolled:false,
+          enrolled: false,
           instructor: {
             name: "Nick Alfonzo",
             infoLink: "",
@@ -250,7 +250,7 @@ export class CoursesViewComponent implements OnInit {
         },
         {
           number: "1112",
-          enrolled:false,
+          enrolled: false,
           instructor: {
             name: "Nick Alfonzo",
             infoLink: "",
@@ -282,7 +282,7 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "2222",
-          enrolled:false,
+          enrolled: false,
           instructor: {
             name: "Matthew Menendez",
             infoLink: "",
@@ -300,7 +300,7 @@ export class CoursesViewComponent implements OnInit {
         },
         {
           number: "2223",
-          enrolled:false,
+          enrolled: false,
           instructor: {
             name: "Matthew Menendez",
             infoLink: "",
@@ -332,7 +332,7 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "3333",
-          enrolled:false,
+          enrolled: false,
           instructor: {
             name: "Jeremiah Blanchard",
             infoLink: "",
@@ -350,7 +350,7 @@ export class CoursesViewComponent implements OnInit {
         },
         {
           number: "3334",
-          enrolled:false,
+          enrolled: false,
           instructor: {
             name: "Jeremiah Blanchard",
             infoLink: "",

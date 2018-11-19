@@ -1,15 +1,6 @@
-<div
-  class="panel-group"
-  id="panel-group-{{panelNumber}}"
-  style="background-color: white; width: 1138px; margin-top: 2px; display:none"
->
+<div class="panel-group" id="panel-group-{{panelNumber}}" style="background-color: white; width: 1138px; margin-top: 2px; display:none">
   <div class="panel heading" style="padding-top: 5px">
-    <h3
-      style="color: black; padding-left: 10px"
-      class="panel-tittle"
-      [attr.data-target]="'#panel-' + panelNumber"
-      data-toggle="collapse"
-    >
+    <h3 style="color: black; padding-left: 10px" class="panel-tittle" [attr.data-target]="'#panel-' + panelNumber" data-toggle="collapse">
       Course: {{ course.number }} - {{ course.name }} ({{
         course.credits
       }}
@@ -27,12 +18,7 @@
               {{ course.description }}
             </p>
             <h3 style="color: black">Prerequisites:</h3>
-            <a
-              href=""
-              style="padding-left: 10px"
-              *ngFor="let prereq of course.prerequisites"
-              >{{ prereq }}<br
-            /></a>
+            <a href="" style="padding-left: 10px" *ngFor="let prereq of course.prerequisites">{{ prereq }}<br /></a>
             <div style="padding-bottom:10px">
             </div>
             <h3 style="color: black">Required for Major:</h3>
@@ -41,22 +27,14 @@
             </p>
             <h3 style="color: black">See Availability (Total)</h3>
             <div class="container">
-              <img
-                src="assets/img/meta-chart.svg"
-                alt="Pie chart"
-                style="width:330px;height: 220px;"
-              />
+              <img src="assets/img/meta-chart.svg" alt="Pie chart" style="width:330px;height: 220px;" />
             </div>
           </div>
         </div>
         <div class="col-md-8 content-Selec" style="background-color: white">
           <div class="container" style="padding-top: 10px">
             <h3 style="color: black">Avaliable Selections:</h3>
-            <div
-              class="container sections"
-              style="height: 185px; width: 600px; margin-left: 10px; margin-bottom: 10px; background-color: white"
-              *ngFor="let section of course.sections"
-            >
+            <div class="container sections" style="height: 185px; width: 600px; margin-left: 10px; margin-bottom: 10px; background-color: white" *ngFor="let section of course.sections">
               <div class="row" style="height: 180px">
                 <div class="col-md-6 section-col-1">
                   <h3 style="color: black; padding-top: 10px">
@@ -64,62 +42,41 @@
                   </h3>
                   <p style="color: black; padding-left: 10px">
                     Instructor: {{ section.instructor.name }}<br />
-                    <a href="{{section.instructor.infoLink}}"
-                      >Instructor Info<br
-                    /></a>
-                    <a href="{{section.instructor.reviewsLink}}"
-                      >Instructor Reviews<br
-                    /></a>
+                    <a href="{{section.instructor.infoLink}}">Instructor Info<br /></a>
+                    <a href="{{section.instructor.reviewsLink}}">Instructor Reviews<br /></a>
                     <a href="{{section.syllabusLink}}">Course Syllabus</a>
                   </p>
                 </div>
-                <div
-                  class="col-md-6 section-col-2"
-                  *ngFor="let time of section.times"
-                >
+                <div class="col-md-6 section-col-2" *ngFor="let time of section.times">
                   <h3 style="color: black; padding-top: 10px">
                     Class Meeting/Times
                   </h3>
                   <p style="color: black; padding-left: 10px">
-                    <span *ngFor="let day of time.days; let last = last"
-                      >{{ day }}<span *ngIf="!last">, </span></span
-                    >
+                    <span *ngFor="let day of time.days; let last = last">{{ day }}<span *ngIf="!last">, </span></span>
                     ({{ time.begin }} - {{ time.end }})<br />
                     {{ time.location }}
-                    <a href="https://campusmap.ufl.edu/#/index/0042" target="_blank">(map)</a><br/>
-
-                    <!-- <div *ngIf="section.enrolled"> -->
+                    <a href="https://campusmap.ufl.edu/#/index/0042" target="_blank">(map)</a><br />
 
                     <span *ngIf="section.enrolled">
                       <button type="button" style="margin-top:15px" aria-disabled="true" class="btn btn-primary disabled">Add Class</button>
-                      <button type="button" value="Click" (click) ="sectionNumber = section.number; removeClass(); section.enrolled = false" style="margin-top:15px; margin-left:5px" class="btn btn-danger">Remove Class</button>
-                     </span>
-                     <span *ngIf="!section.enrolled">
-                       <button type="button" value="Click" (click) ="sectionNumber = section.number; addClass(); section.enrolled = true" style="margin-top:15px" class="btn btn-primary">Add Class</button>
-                       <button type="button" style="margin-top:15px; margin-left:5px" aria-disabled="true" class="btn btn-danger disabled">Remove Class</button>
-                      </span>
-                    <!-- </div> -->
-                    <!-- <div ngIf="!section.enrolled">
-                      <button type="button" value="Click" (click) ="sectionNumber = section.number; addClass(); section.enrolled = true" style="margin-top:15px" class="btn btn-primary">Add Class</button>
-                      <button type="button" value="Click" (click) ="sectionNumber = section.number; removeClass(); section.enrolled = false" style="margin-top:15px; margin-left:5px" class="btn btn-danger disabled">Add Class</button>
-                    </div> -->
-
+                      <button type="button" value="Click" (click)="sectionNumber = section.number; removeClass(); section.enrolled = false" style="margin-top:15px; margin-left:5px" class="btn btn-danger">Remove Class</button>
+                    </span>
+                    <span *ngIf="!section.enrolled">
+                      <button type="button" value="Click" (click)="sectionNumber = section.number; addClass(); section.enrolled = true" style="margin-top:15px" class="btn btn-primary">Add Class</button>
+                      <button type="button" style="margin-top:15px; margin-left:5px" aria-disabled="true" class="btn btn-danger disabled">Remove Class</button>
+                    </span>
                   </p>
                 </div>
               </div>
             </div>
 
-
             <div class="row content-Transf" style="margin-top: 40px; padding-top: 25px">
-              <div class="col "style="background-color: white">
+              <div class="col " style="background-color: white">
                 <h3 style="color: black">Transfer University: Universidad Carlos III</h3>
                 <p style="color: black; padding-left: 10px">Course Equivalence:
                   <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13882&idioma=2" target="_blank">{{ course.equivalence }}</a>
                   <br>Prereq(s) Equivalence:
-                  <a
-                    href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13868&idioma=2"
-                    *ngFor="let prereq of course.prereqEquivalence"
-                    >{{ prereq }}, </a>
+                  <a href="https://aplicaciones.uc3m.es/cpa/generaFicha?est=218&plan=256&asig=13868&idioma=2" *ngFor="let prereq of course.prereqEquivalence">{{ prereq }}, </a>
                 </p>
               </div>
             </div>

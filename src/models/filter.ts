@@ -1,3 +1,3 @@
 export interface Filter {
-    //TODO: implement filter
+  //TODO: implement filter
 }
