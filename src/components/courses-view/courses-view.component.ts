@@ -30,6 +30,7 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "12344",
+          students:"",
           instructor: {
             name: "Jaime Ruiz",
             infoLink: "",
@@ -47,6 +48,7 @@ export class CoursesViewComponent implements OnInit {
         },
         {
           number: "12345",
+          students:"",
           instructor: {
             name: "Jaime Ruiz",
             infoLink: "",
@@ -76,6 +78,7 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "1234",
+          students:"",
           instructor: {
             name: "Jeremiah Blanchard",
             infoLink: "",
@@ -93,6 +96,7 @@ export class CoursesViewComponent implements OnInit {
         },
         {
           number: "1235",
+          students:"",
           instructor: {
             name: "Jeremiah Blanchard",
             infoLink: "",
@@ -122,6 +126,7 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "4567",
+          students:"",
           instructor: {
             name: "Nick Sanches",
             infoLink: "",
@@ -139,6 +144,7 @@ export class CoursesViewComponent implements OnInit {
         },
         {
           number: "4568",
+          students:"",
           instructor: {
             name: "Nick Sanches",
             infoLink: "",
@@ -168,6 +174,7 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "7894",
+          students:"",
           instructor: {
             name: "Nate Mendez",
             infoLink: "",
@@ -185,6 +192,7 @@ export class CoursesViewComponent implements OnInit {
         },
         {
           number: "7895",
+          students:"",
           instructor: {
             name: "Nate Mendez",
             infoLink: "",
@@ -214,6 +222,7 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "1111",
+          students:"",
           instructor: {
             name: "Nick Alfonzo",
             infoLink: "",
@@ -231,6 +240,7 @@ export class CoursesViewComponent implements OnInit {
         },
         {
           number: "1112",
+          students:"",
           instructor: {
             name: "Nick Alfonzo",
             infoLink: "",
@@ -260,6 +270,7 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "2222",
+          students:"",
           instructor: {
             name: "Matthew Menendez",
             infoLink: "",
@@ -277,6 +288,7 @@ export class CoursesViewComponent implements OnInit {
         },
         {
           number: "2223",
+          students:"",
           instructor: {
             name: "Matthew Menendez",
             infoLink: "",
@@ -306,6 +318,7 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "3333",
+          students:"",
           instructor: {
             name: "Jeremiah Blanchard",
             infoLink: "",
@@ -323,6 +336,7 @@ export class CoursesViewComponent implements OnInit {
         },
         {
           number: "3334",
+          students:"",
           instructor: {
             name: "Jeremiah Blanchard",
             infoLink: "",

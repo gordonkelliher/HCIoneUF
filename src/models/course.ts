@@ -8,6 +8,7 @@ export interface Course {
 
   sections: {
     number: string;
+    students: string;
     instructor: {
       name: string;
       infoLink: string;
