@@ -23,13 +23,31 @@ export class CoursesViewComponent implements OnInit {
       number: "CEN4721",
       name: "Human-Computer Interaction",
       credits: 3,
-      description: "Description goes here",
-      prerequisites: ["COP3530", "another prereq"],
+      description: "Learn about how humans and computers interact on multiple levels.",
+      prerequisites: ["COP3530"],
       majors: ["Computer Science"],
 
       sections: [
         {
           number: "12344",
+          students: "",
+          instructor: {
+            name: "Jaime Ruiz",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "10:40 AM",
+              end: "11:30 PM",
+              location: "CSE E119"
+            }
+          ]
+        }
+        {
+          number: "9999",
           students: "",
           instructor: {
             name: "Jaime Ruiz",
@@ -76,6 +94,24 @@ export class CoursesViewComponent implements OnInit {
             }
           ]
         }
+        {
+          number: "8888",
+          students: "",
+          instructor: {
+            name: "Jeremiah Blanchard",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "9:30 AM",
+              end: "10:20 AM",
+              location: "CSE E220"
+            }
+          ]
+        }
       ]
     });
 
@@ -90,6 +126,24 @@ export class CoursesViewComponent implements OnInit {
       sections: [
         {
           number: "4567",
+          students: "",
+          instructor: {
+            name: "Nick Sanches",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["T", "R"],
+              begin: "11:40 AM",
+              end: "12:30 PM",
+              location: "CSE E229"
+            }
+          ]
+        }
+        {
+          number: "5678",
           students: "",
           instructor: {
             name: "Nick Sanches",
@@ -163,6 +217,120 @@ export class CoursesViewComponent implements OnInit {
               begin: "8:00 PM",
               end: "8:50 PM",
               location: "CSE E219"
+            }
+          ]
+        }
+        {
+          number: "1113",
+          students: "",
+          instructor: {
+            name: "Nick Alfonzo",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "8:00 PM",
+              end: "8:50 PM",
+              location: "CSE E219"
+            }
+          ]
+        }
+      ]
+    });
+
+    this.courses.push({
+      number: "CDA3101",
+      name: "Introduction to Computer Organization",
+      credits: 3,
+      description: "Learn the introduction of the organization of computing systems.",
+      prerequisites: ["COP3504", "COP3503"],
+      majors: ["Computer Science"],
+
+      sections: [
+        {
+          number: "2222",
+          students: "",
+          instructor: {
+            name: "Matthew Menendez",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "6:00 PM",
+              end: "6:50 PM",
+              location: "CSE E217"
+            }
+          ]
+        }
+        {
+          number: "3535",
+          students: "",
+          instructor: {
+            name: "Matthew Menendez",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "6:00 PM",
+              end: "6:50 PM",
+              location: "CSE E217"
+            }
+          ]
+        }
+      ]
+    });
+
+    this.courses.push({
+      number: "COP4600",
+      name: "Operating Systems",
+      credits: 3,
+      description: "Design and implement various Operating Systems components.",
+      prerequisites: ["CDA3101", "COP3530"],
+      majors: ["Computer Science"],
+
+      sections: [
+        {
+          number: "3333",
+          students: "",
+          instructor: {
+            name: "Jeremiah Blanchard",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "4:00 PM",
+              end: "4:50 PM",
+              location: "CSE E119"
+            }
+          ]
+        }
+        {
+          number: "5555",
+          students: "",
+          instructor: {
+            name: "Jeremiah Blanchard",
+            infoLink: "",
+            reviewsLink: ""
+          },
+          syllabusLink: "",
+          times: [
+            {
+              days: ["M", "W", "F"],
+              begin: "4:00 PM",
+              end: "4:50 PM",
+              location: "CSE E119"
             }
           ]
         }
