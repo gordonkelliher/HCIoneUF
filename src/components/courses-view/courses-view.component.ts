@@ -40,7 +40,7 @@ export class CoursesViewComponent implements OnInit {
             {
               days: ["M", "W", "F"],
               begin: "10:40 AM",
-              end: "11:30 PM",
+              end: "11:30 AM",
               location: "CSE E119"
             }
           ]
@@ -56,8 +56,8 @@ export class CoursesViewComponent implements OnInit {
           times: [
             {
               days: ["M", "W", "F"],
-              begin: "10:40 AM",
-              end: "11:30 PM",
+              begin: "11:40 AM",
+              end: "12:30 PM",
               location: "CSE E119"
             }
           ]
@@ -102,8 +102,8 @@ export class CoursesViewComponent implements OnInit {
           times: [
             {
               days: ["M", "W", "F"],
-              begin: "9:30 AM",
-              end: "10:20 AM",
+              begin: "10:30 AM",
+              end: "11:20 AM",
               location: "CSE E220"
             }
           ]
@@ -148,8 +148,8 @@ export class CoursesViewComponent implements OnInit {
           times: [
             {
               days: ["T", "R"],
-              begin: "11:40 AM",
-              end: "12:30 PM",
+              begin: "1:40 PM",
+              end: "2:30 PM",
               location: "CSE E229"
             }
           ]
@@ -178,7 +178,7 @@ export class CoursesViewComponent implements OnInit {
             {
               days: ["M", "W", "F"],
               begin: "2:40 PM",
-              end: "3:30 AM",
+              end: "3:30 PM",
               location: "CSE E109"
             }
           ]
@@ -194,8 +194,8 @@ export class CoursesViewComponent implements OnInit {
           times: [
             {
               days: ["M", "W", "F"],
-              begin: "2:40 PM",
-              end: "3:30 AM",
+              begin: "3:40 PM",
+              end: "4:30 PM",
               location: "CSE E109"
             }
           ]
@@ -240,8 +240,8 @@ export class CoursesViewComponent implements OnInit {
           times: [
             {
               days: ["M", "W", "F"],
-              begin: "8:00 PM",
-              end: "8:50 PM",
+              begin: "9:00 PM",
+              end: "9:50 PM",
               location: "CSE E219"
             }
           ]
@@ -286,8 +286,8 @@ export class CoursesViewComponent implements OnInit {
           times: [
             {
               days: ["M", "W", "F"],
-              begin: "6:00 PM",
-              end: "6:50 PM",
+              begin: "7:00 PM",
+              end: "7:50 PM",
               location: "CSE E217"
             }
           ]
@@ -332,8 +332,8 @@ export class CoursesViewComponent implements OnInit {
           times: [
             {
               days: ["M", "W", "F"],
-              begin: "4:00 PM",
-              end: "4:50 PM",
+              begin: "5:00 PM",
+              end: "5:50 PM",
               location: "CSE E119"
             }
           ]
