@@ -6,23 +6,19 @@ export interface Course {
   prerequisites: string[];
   majors: string[];
 
-  sections: [
-    {
-      number: string;
-      instructor: {
-        name: string;
-        infoLink: string;
-        reviewsLink: string;
-      };
-      syllabusLink: string;
-      times: [
-        {
-          days: string[];
-          begin: string;
-          end: string;
-          location: string;
-        }
-      ];
-    }
-  ];
+  sections: {
+    number: string;
+    instructor: {
+      name: string;
+      infoLink: string;
+      reviewsLink: string;
+    };
+    syllabusLink: string;
+    times: {
+      days: string[];
+      begin: string;
+      end: string;
+      location: string;
+    }[];
+  }[];
 }
