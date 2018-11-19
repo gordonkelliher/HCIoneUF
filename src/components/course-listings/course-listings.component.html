@@ -89,8 +89,15 @@
                     <a href="https://campusmap.ufl.edu/#/index/0042" target="_blank">(map)</a><br/>
 
                     <!-- <div *ngIf="section.enrolled"> -->
-                      <button type="button" value="Click" (click) ="sectionNumber = section.number; addClass(); section.enrolled = true" style="margin-top:15px" class="btn btn-primary">Add Class</button>
+
+                    <span *ngIf="section.enrolled">
+                      <button type="button" style="margin-top:15px" aria-disabled="true" class="btn btn-primary disabled">Add Class</button>
                       <button type="button" value="Click" (click) ="sectionNumber = section.number; removeClass(); section.enrolled = false" style="margin-top:15px; margin-left:5px" class="btn btn-danger">Remove Class</button>
+                     </span>
+                     <span *ngIf="!section.enrolled">
+                       <button type="button" value="Click" (click) ="sectionNumber = section.number; addClass(); section.enrolled = true" style="margin-top:15px" class="btn btn-primary">Add Class</button>
+                       <button type="button" style="margin-top:15px; margin-left:5px" aria-disabled="true" class="btn btn-danger disabled">Remove Class</button>
+                      </span>
                     <!-- </div> -->
                     <!-- <div ngIf="!section.enrolled">
                       <button type="button" value="Click" (click) ="sectionNumber = section.number; addClass(); section.enrolled = true" style="margin-top:15px" class="btn btn-primary">Add Class</button>
