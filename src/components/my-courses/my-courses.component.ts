@@ -30,7 +30,7 @@ export class MyCoursesComponent implements OnInit {
         // this.selection.push(this.studentList[i].id);
         // console.log(this.selection);
       // }
-    }
+    // }
     // this.filteredCourses = [];
     //
     // this.courses.forEach(course => {
